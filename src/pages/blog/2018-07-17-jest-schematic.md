@@ -152,19 +152,19 @@ A few resources were key to developing this schematic. First was this excellent 
 We’re excited to see this project open-sourced and hope that the community helps us continue to improve and maintain it. Give it a try and let us know what you think. Github stars are welcomed and if you see any issues or ways to improve the schematic, please file an issue. You can use the schematic in you Angular CLI applications by running:
 
 ```bash
-ng add @briebug/jest
+ng add @briebug/jest-schematic
 ```
 
 Or install globally:
 
 ```bash
-npm install -g @briebug/jest
+npm install -g @briebug/jest-schematic
 ```
 
 Then in any Angular project directory:
 
 ```bash
-ng g @briebug/jest:jest
+ng g @briebug/jest-schematic:add
 ```
 
 The source code can be found at: https://github.com/briebug/jest-schematic
