@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import github from '../img/github-icon.svg';
+import github from '../img/github.svg';
+import gitlab from '../img/gitlab.svg';
+import twitter from '../img/twitter.svg';
+import SocialLink from './SocialLink';
 
 export default class NavBar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isActive: false,
     };
@@ -41,18 +44,9 @@ export default class NavBar extends React.Component {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="field is-grouped">
-              <p className="control">
-                <a
-                  className="navbar-item"
-                  href="https://github.com/schuchard"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="icon">
-                    <img src={github} alt="Github" />
-                  </span>
-                </a>
-              </p>
+              <SocialLink url="https://twitter.com/KevinSchuchard" linkType={twitter} altType="Twitter" />
+              <SocialLink url="https://github.com/schuchard" linkType={github} altType="Github" />
+              <SocialLink url="https://gitlab.com/schuchard" linkType={gitlab} altType="Gitlab" />
             </div>
           </div>
         </div>
