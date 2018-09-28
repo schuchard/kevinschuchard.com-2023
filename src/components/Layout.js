@@ -8,7 +8,7 @@ const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet>
       <title>Kevin Schuchard</title>
-      <link rel="preload" as="font" crossorigin href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:900" rel="stylesheet" />
+      <link rel="stylesheet" as="font" crossorigin href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:900"/>
     </Helmet>
     <Navbar />
     <div>{children}</div>
