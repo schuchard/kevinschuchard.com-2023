@@ -6,7 +6,7 @@ $kevin-blue-invert: #fff
 
 $primary: $kevin-blue
 $primary-invert: $kevin-blue-invert
-$body-size: 20px
+$body-size: 18px
 $body-line-height: 1.7
 
 .index-list-title
@@ -45,3 +45,42 @@ $body-line-height: 1.7
   margin-top: 0 !important
 
 @import "~bulma"
+
+@font-face
+  font-family: 'Roboto'
+  font-display: swap
+  src: local('Roboto'), url('https://fonts.googleapis.com/css?family=Roboto:900') format('woff2')
+
+@font-face
+  font-family: 'Open Sans'
+  font-display: swap
+  src: local('Open Sans'), url('https://fonts.googleapis.com/css?family=Open+Sans') format('woff2')
+
+.section
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+
+h1,h2,h3,h4,h5
+  font-family: 'Roboto', sans-serif;
+
+p
+  font-family: 'Open Sans', sans-serif;
+
+// https://meowni.ca/font-style-matcher/
+// georgia fallback
+// ont-family: Georgia
+// font-size: 16px
+// line-height: 1.6
+// color: red
+// visibility: visible
+// word-spacing: 0.45px
+// letter-spacing: -0.1px
+// font-weight: 300;
+
+// open sans
+// font-size: 16px
+// line-height: 1.6
+// font-family: "Open Sans"
+// letter-spacing: -0.45px
+// word-spacing: 0.1px
+// visibility: visible;
