@@ -42,7 +42,6 @@ class ContactPageTemplate extends React.Component {
       const r = new RegExp(
         /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
       );
-      console.log('r.test(string) ->', r.test(string));
       return r.test(string);
     }
   }
@@ -63,7 +62,6 @@ class ContactPageTemplate extends React.Component {
     evt.preventDefault();
     const { isDisabled } = this.canBeSubmitted();
     if (!isDisabled) {
-      console.log(this.state);
     }
   };
 
