@@ -33,10 +33,18 @@ class ContactPageTemplate extends React.Component {
 
   validate(userEmail, userName, userMessage) {
     return {
-      userEmail: userEmail.length === 0,
+      userEmail: userEmail.length === 0 || !email(userEmail),
       userName: userName.length === 0,
       userMessage: userMessage.length === 0,
     };
+
+    function email(string) {
+      const r = new RegExp(
+        /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+      );
+      console.log('r.test(string) ->', r.test(string));
+      return r.test(string);
+    }
   }
 
   handleBlur = (field) => (evt) => {
@@ -53,14 +61,15 @@ class ContactPageTemplate extends React.Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    if (!this.canBeSubmitted().isDisabled) {
+    const { isDisabled } = this.canBeSubmitted();
+    if (!isDisabled) {
       console.log(this.state);
     }
   };
 
   render() {
     const PageContent = this.props.contactComponent || Content;
-    // const { errors } = this.canBeSubmitted();
+    const { isDisabled } = this.canBeSubmitted();
 
     return (
       <section className="section section--gradient">
@@ -124,7 +133,9 @@ class ContactPageTemplate extends React.Component {
 
                   <div className="field is-grouped">
                     <div className="control">
-                      <button className="button is-link">Submit</button>
+                      <button className="button is-link" disabled={isDisabled}>
+                        Submit
+                      </button>
                     </div>
                   </div>
                 </form>
