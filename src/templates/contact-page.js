@@ -47,9 +47,16 @@ class ContactPageTemplate extends React.Component {
 
   canBeSubmitted() {
     const errors = this.validate(this.state.userEmail, this.state.userName, this.state.userMessage);
-    const isDisabled = !Object.keys(errors).some((x) => errors[x]);
-    return { ...errors, ...isDisabled };
+    const isDisabled = Object.keys(errors).some((x) => errors[x]);
+    return { ...errors, isDisabled };
   }
+
+  handleSubmit = (evt) => {
+    evt.preventDefault();
+    if (!this.canBeSubmitted().isDisabled) {
+      console.log(this.state);
+    }
+  };
 
   render() {
     const PageContent = this.props.contactComponent || Content;
@@ -65,7 +72,7 @@ class ContactPageTemplate extends React.Component {
                   {this.props.title}
                 </h2>
                 <PageContent className="content" content={this.props.content} />
-                <form>
+                <form onSubmit={this.handleSubmit}>
                   <div className="field">
                     <label className="label">Name</label>
                     <div className="control has-icons-right">
@@ -87,7 +94,7 @@ class ContactPageTemplate extends React.Component {
                     <label className="label">Email</label>
                     <div className="control has-icons-right">
                       <input
-                        className="input is-danger"
+                        className="input"
                         type="email"
                         placeholder="Email"
                         name="userEmail"
