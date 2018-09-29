@@ -4,61 +4,73 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import mail from '../img/mail.svg';
+import user from '../img/user.svg';
 
-export const ContactPageTemplate = ({ title, content, contactComponent }) => {
-  const PageContent = contactComponent || Content;
+class ContactPageTemplate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h2>
-              <PageContent className="content" content={content} />
+  render() {
+    const PageContent = this.props.contactComponent || Content;
 
-              <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="Text input" />
+    return (
+      <section className="section section--gradient">
+        <div className="container">
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+              <div className="section">
+                <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+                  {this.props.title}
+                </h2>
+                <PageContent className="content" content={this.props.content} />
+
+                <div class="field">
+                  <label class="label">Name</label>
+                  <div class="control has-icons-right">
+                    <input class="input" type="text" placeholder="Text input" />
+                    <span class="icon is-small is-right">
+                      <img src={user} alt="name" />
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div class="field">
-                <label class="label">Email</label>
-                <div class="control has-icons-left has-icons-right">
-                  <input
-                    class="input is-danger"
-                    type="email"
-                    placeholder="Email input"
-                    value="hello@"
-                  />
-                  <span class="icon is-small is-left">
-                  <img src={mail} alt="mail"></img>
-                  </span>
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control has-icons-right">
+                    <input
+                      class="input is-danger"
+                      type="email"
+                      placeholder="Email input"
+                    />
+                    <span class="icon is-small is-right">
+                      <img src={mail} alt="mail" />
+                    </span>
+                  </div>
+                  {/* <p class="help is-danger">This email is invalid</p> */}
                 </div>
-                <p class="help is-danger">This email is invalid</p>
-              </div>
 
-              <div class="field">
-                <label class="label">Message</label>
-                <div class="control">
-                  <textarea class="textarea" placeholder="Textarea" />
+                <div class="field">
+                  <label class="label">Message</label>
+                  <div class="control">
+                    <textarea class="textarea" placeholder="Textarea" />
+                  </div>
                 </div>
-              </div>
 
-              <div class="field is-grouped">
-                <div class="control">
-                  <button class="button is-link">Submit</button>
+                <div class="field is-grouped">
+                  <div class="control">
+                    <button class="button is-link">Submit</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  }
+}
 
 ContactPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
