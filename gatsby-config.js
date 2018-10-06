@@ -40,6 +40,25 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        // Regex based on http://stackoverflow.com/a/18017805
+        navigateFallbackWhitelist: [/^[^?]*([^.?]{5}|\.html)(\?.*)?$/],
+        navigateFallbackBlacklist: [/\?(.+&)?no-cache=1$/, /admin/],
+        cacheId: `kevinschuchard-offline`,
+        dontCacheBustUrlsMatching: /(.*js$|\/static\/)/,
+        runtimeCaching: [
+          {
+            // Add runtime caching of various page resources.
+            urlPattern: /\.(?:png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+            handler: `staleWhileRevalidate`,
+          },
+        ],
+        skipWaiting: true,
+        clientsClaim: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
@@ -47,4 +66,4 @@ module.exports = {
     },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
-}
+};
