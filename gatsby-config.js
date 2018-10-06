@@ -28,6 +28,18 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `KevinSchuchard`,
+        short_name: `Schuchard`,
+        start_url: `/`,
+        background_color: `#5aa8fc`,
+        theme_color: `#5c63f2`,
+        display: `minimal-ui`,
+        icon: `src/img/manifest-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
