@@ -7,7 +7,7 @@ import Layout from '../../components/Layout'
 const TagsPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
 }) => (
-  <Layout>
+  <Layout metaDesc="Kevin Schuchard blog tags">
     <section className="section">
       <Helmet title={`Tags | ${title}`} />
       <div className="container content">

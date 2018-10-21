@@ -9,7 +9,7 @@ export default class IndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <Layout>
+      <Layout metaDesc="Kevin Schuchard blog posts">
         <section className="section">
           <div className="container">
             <div className="content">

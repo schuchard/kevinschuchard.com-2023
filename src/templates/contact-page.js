@@ -156,7 +156,7 @@ const ContactPage = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout>
+    <Layout metaDesc="Kevin Schuchard Contact Me">
       <ContactPageTemplate
         contactComponent={HTMLContent}
         title={post.frontmatter.title}
