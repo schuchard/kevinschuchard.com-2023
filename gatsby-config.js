@@ -22,6 +22,18 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-62178810-2',
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // Avoids sending pageview hits from custom paths
+        exclude: ['/admin/**'],
+        siteSpeedSampleRate: 10,
+        cookieDomain: 'kevinschuchard.com',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [],
