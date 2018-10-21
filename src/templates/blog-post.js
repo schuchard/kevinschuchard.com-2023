@@ -56,9 +56,10 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data
+  const tags = `Topics: ${post.frontmatter.tags.join(' ')}`;
 
   return (
-    <Layout metaDesc={post.frontmatter.description}>
+    <Layout metaDesc={`${post.frontmatter.description} ${tags}`}>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
