@@ -6,6 +6,7 @@
   "dependencies": {
     "bulma": "0.7.1",
     "gatsby": "2.0.0",
+    "gatsby-plugin-google-analytics": "2.0.6",
     "gatsby-plugin-manifest": "^2.0.4",
     "gatsby-plugin-netlify": "2.0.0",
     "gatsby-plugin-netlify-cms": "3.0.0",
@@ -38,7 +39,7 @@
     "clean": "rimraf .cache public",
     "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
-    "serve": "gatsby serve",
+    "serve": "yarn build && gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
