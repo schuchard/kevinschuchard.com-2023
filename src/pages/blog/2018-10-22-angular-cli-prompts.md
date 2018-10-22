@@ -9,7 +9,7 @@ tags:
   - schematic
 ---
 
-# Angular 7 Schematics
+# Angular 7
 
 The release of Angular 7 brought with it CLI prompts for schematics. This is nothing new for CLI’s in general but improves the user experience for Angular CLI schematics.
 
