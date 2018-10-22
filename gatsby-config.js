@@ -75,8 +75,7 @@ module.exports = {
         }`,
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
+    // 'gatsby-transformer-sharp',
     {
       // https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference
       resolve: `gatsby-plugin-google-analytics`,
@@ -90,10 +89,12 @@ module.exports = {
         cookieDomain: 'kevinschuchard.com',
       },
     },
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-static-images',
           {
             resolve: `gatsby-remark-images`,
             options: {
