@@ -13,6 +13,8 @@ tags:
 
 The release of Angular 7 brought with it CLI prompts for schematics. This is nothing new for CLI’s in general but improves the user experience for Angular CLI schematics.
 
+![prettier-schematic](../../img/blog/2018-10-22-angular-cli-prompts/prettier-schematic-cli.gif)
+
 # What’s different
 
 Before version 7, the only way to pass schematic configuration options was to append a value or double dash key/values after the schematic like in the following examples
