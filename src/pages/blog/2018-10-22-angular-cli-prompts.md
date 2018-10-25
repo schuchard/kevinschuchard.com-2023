@@ -39,7 +39,7 @@ If you’re a schematic consumer there’s not much to do. First, you’ll need 
 npm i -g @angular/cli
 ```
 
-Once the schematics you use begin leveraging this feature, you’ll see any new prompts your schematic has enabled. There are three new prompts.
+Once the schematics you use begin leveraging this feature, you’ll see any new prompts your schematic has enabled. There are three new prompts types.
 
 **confirmation** - A yes or no question; ideal for boolean options
 
@@ -47,9 +47,9 @@ Once the schematics you use begin leveraging this feature, you’ll see any new 
 
 **list** - a predefined set of items which may be selected
 
-If you’re a schematic author process is almost just a simple. You’ll want to upgrade your schematic dependencies to their respective @angular version 7. Then in your `schema.json` file, you’ll enable a prompt for each configuration value in one of two ways, longhand, and shorthand.
+If you’re a schematic author the process is almost just a simple. You’ll want to upgrade your schematic dependencies to their respective @angular version 7. Then in your `schema.json` file, you’ll enable a prompt for each configuration value in one of two ways, longhand, and shorthand.
 
-[Shorthand](https://github.com/angular/angular-cli/blob/fb4e8187824fe66e50b42c16f95458e82b4787a8/docs/specifications/schematic-prompts.md#shorthand-form) is both more succinct capable across all prompt types than [longhand](https://github.com/angular/angular-cli/blob/fb4e8187824fe66e50b42c16f95458e82b4787a8/docs/specifications/schematic-prompts.md#longhand-form) so that’s the example I’ll be discussing.
+[Shorthand](https://github.com/angular/angular-cli/blob/fb4e8187824fe66e50b42c16f95458e82b4787a8/docs/specifications/schematic-prompts.md#shorthand-form) is more succinct than [longhand](https://github.com/angular/angular-cli/blob/fb4e8187824fe66e50b42c16f95458e82b4787a8/docs/specifications/schematic-prompts.md#longhand-form) and quite capable across all prompt types so that’s the example I’ll be discussing.
 
 Here’s an example of a schematic configuration option from the `schema.json` file before converting it to a prompt.
 
