@@ -57,7 +57,7 @@ Next, center the column content. I’ve broken out the styles into two classes, 
 
 Now we have rotated text that's dynamically centered both vertically and horizontally within its container. We also can still reason about the outer elements layout in a horizontal way.
 
-# Demo
+# Resources
 
 - [Stackblitz demo](https://stackblitz.com/github/schuchard/rotate-vertical-text-ng)
 - [github repo](https://github.com/schuchard/rotate-vertical-text-ng)
