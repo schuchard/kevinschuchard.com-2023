@@ -75,7 +75,7 @@ module.exports = {
         }`,
       },
     },
-    // 'gatsby-transformer-sharp',
+    'gatsby-transformer-sharp',
     {
       // https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference
       resolve: `gatsby-plugin-google-analytics`,

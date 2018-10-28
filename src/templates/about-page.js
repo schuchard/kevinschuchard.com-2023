@@ -16,7 +16,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent, headshot }
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h2>
-              <img src={headshot.src} alt={headshot.alt} />
+              <img src={headshot.src.childImageSharp.resize.src} alt={headshot.alt} />
               <PageContent className="content" content={content} />
             </div>
           </div>
@@ -62,7 +62,13 @@ export const aboutPageQuery = graphql`
         title
         headshot {
           alt
-          src
+          src {
+            childImageSharp {
+              resize(width: 300) {
+                src
+              }
+            }
+          }
         }
       }
     }
