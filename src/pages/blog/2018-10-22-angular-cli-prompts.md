@@ -19,7 +19,7 @@ The release of Angular 7 brought with it CLI prompts for schematics. This is not
 
 Before version 7, the only way to pass schematic configuration options was to append a value or double dash key/values after the schematic like in the following examples
 
-```shell
+```bash
 ng g c newComponent --selector my-new-component
 ```
 
@@ -37,7 +37,7 @@ They can also reveal new features. For example, did you know there’s a flag wh
 
 If you’re a schematic consumer there’s not much to do. First, you’ll need to upgrade your local `@angular/cli` to version 7.
 
-```shell
+```bash
 npm i -g @angular/cli
 ```
 

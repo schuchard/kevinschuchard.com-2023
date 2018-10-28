@@ -1,0 +1,146 @@
+$colors-lighter: #373940 // light blue
+$colors-dark: #282c34 // dark blue
+$colors-darker: #20232a // really dark blue
+$colors-brand: #61dafb // electric blue
+$colors-brandLight: #bbeffd
+$colors-text: #1a1a1a // very dark grey / black substitute
+$colors-subtle: #6d6d6d // light grey for text
+$colors-subtleOnDark: #999
+$colors-divider: #ececec // very light grey
+$colors-note: #ffe564 // yellow
+$colors-error: #ff6464 // yellow
+$colors-white: #ffffff
+$colors-black: #000000
+
+$colors-char: #D8DEE9
+$colors-comment: #B2B2B2
+$colors-keyword: #c5a5c5
+$colors-lineHighlight: #353b45 // $colors-dark + extra lightness
+$colors-primitive: #5a9bcf
+$colors-string: #8dc891
+$colors-variable: #d7deea
+$colors-boolean: #ff8b50
+$colors-punctuation: #88C6BE
+$colors-tag: #fc929e
+$colors-function: #79b6f2
+$colors-className: #FAC863
+$colors-method: #6699CC
+$colors-operator: #fc929e
+
+.gatsby-highlight
+  background: $colors-dark
+  color: $colors-white
+  borderRadius: 10
+  overflow: auto
+  tabSize: 1.5em
+
+.gatsby-highlight > code[class*="gatsby-code-"]
+.gatsby-highlight > pre[class*="gatsby-code-"]
+.gatsby-highlight > pre.-code
+    height: auto !important
+    margin: 1rem
+    fontSize: 14
+    lineHeight: 20px
+    whiteSpace: pre-wrap
+    wordBreak: break-word
+
+
+.gatsby-highlight + .gatsby-highlight
+  marginTop: 20
+
+
+.gatsby-highlight-code-line
+  backgroundColor: $colors-lineHighlight
+  display: block
+  margin: -0.125rem calc(-1rem - 15px)
+  padding: 0.125rem calc(1rem + 15px)
+
+
+.token.attr-name
+  color: $colors-keyword
+
+
+.token.comment
+.token.block-comment
+.token.prolog
+.token.doctype
+.token.cdata
+    color: $colors-comment
+
+
+.token.property
+.token.number
+.token.function-name
+.token.constant
+.token.symbol
+.token.deleted
+    color: $colors-primitive
+
+
+
+.token.boolean
+  color: $colors-boolean
+
+
+.token.tag
+  color: $colors-tag
+
+
+.token.string
+  color: $colors-string
+
+
+.token.punctuation
+  color: $colors-punctuation
+
+
+.token.selector
+.token.char
+.token.builtin
+.token.inserted
+    color: $colors-char
+
+
+
+.token.function
+  color: $colors-function
+
+
+.token.operator
+.token.entity
+.token.url
+.token.variable
+    color: $colors-variable
+
+
+
+.token.attr-value
+  color: $colors-string
+
+
+.token.keyword
+  color: $colors-keyword
+
+
+.token.atrule
+.token.class-name
+    color: $colors-className
+
+
+.token.important
+  fontWeight: 400
+
+
+.token.bold
+  fontWeight: 700
+
+.token.italic
+  fontStyle: italic
+
+
+.token.entity
+  cursor: help
+
+
+.namespace
+  opacity: 0.7

@@ -35,7 +35,7 @@ Once I had the test loop setup and a plan for what needed to be done I started w
 
 Reading and modifying files will likely be a common task you’ll implement when writing a schematic and it’s one I did several times with the Jest schematic. First, you’ll likely start by taking the `Tree` and creating a string representation from a Node Buffer. This is done via a method on the `Tree` called `read()` from which we’ll eventually use to create an Abstract Syntax Tree (AST). A simplified example looks like this.
 
-```js
+```typescript
 const buffer = tree.read(pkgJson.Path)
 
 const content = buffer.toString();
@@ -45,7 +45,7 @@ const packageJson = parseAsJsonAst(content, JsonParseMode.Strict);
 
 Once we have the AST node we can search for the properties we’d like to remove or modify. In order to make these changes, we utilize methods that implement a `UpdateRecorder`. Under the hood, this creates a Linked List and manages modifications through the following methods.
 
-```js
+```typescript
 export interface UpdateRecorder {
     insertLeft(index: number, content: Buffer | string): UpdateRecorder;
     insertRight(index: number, content: Buffer | string): UpdateRecorder;
@@ -55,7 +55,7 @@ export interface UpdateRecorder {
 
 The AST returns several useful properties for each node in the tree. Here’s an example of `scripts.test` node from the package.json
 
-```js
+```json
 {
     "kind": "keyvalue",
     "key": {
@@ -85,7 +85,7 @@ The properties we’re interested in are the start and end keys. This informatio
 
 In the Jest schematic, I needed to change the `scripts.test` value in the package.json from `ng test` to `jest`. So once I had access to the `scripts` AST node, I could change the `test` value with the following.
 
-```js
+```typescript
 const { end, start } = innerNode;
 
 recorder.remove(start.offset, end.offset - start.offset);
@@ -96,7 +96,7 @@ In this example, I take the properties shown above from the AST and provide the 
 
 In order to use the recorder, you’ll need to indicate that updates are being applied by creating a recorder object that you’ll call the `remove`, and `insertRight` methods from. Once your changes are done, call `commitUpdate` on the `Tree` passing the recorder as an argument. A full example can be found here.
 
-```js
+```typescript
 const recorder = tree.beginUpdate(pkgJson.Path);
 // ...
 tree.commitUpdate(recorder);
@@ -106,7 +106,7 @@ tree.commitUpdate(recorder);
 
 I also faced another decision in determining how to set the latest Jest dependency versions. We didn’t want to hard code a value that required maintenance, so we decided to make an HTTP request to the npm registry and fetch the latest version. We created a method that accepts a package name and returns the latest package version. Mike Brocchi from the Angular CLI team was helpful in guiding our decision on how to implement this functionality. Fortunately, the input of a Schematic is synchronous, but the output can be asynchronous, and the schematics library will wait for everything to be done before starting the next step. Up to this point, our `Rule`’s have been synchronous, returning a `Tree`. For this `Rule`, we were able to return an `Observable<Tree>` and wait for the HTTP call.
 
-```js
+```typescript
 of('jest', 'jest-preset-angular').pipe(
     concatMap((packageName: string) => getLatestNodeVersion(packageName)),
     map((packageFromRegistry: NodePackage) => {
@@ -129,13 +129,13 @@ The source code for `getLatestNodeVersion` can be found here and we have a PR op
 
 Another thing I needed to accomplish was adding new files to the host and that process is fairly straightforward. In the repo, I create a folder with the files in their respective locations (1 in the directory root and 2 in the /src folder). These files can be generated with dynamic values in the file and filename if necessary. File contents use a templating syntax, and have methods available for dasherizing or classifying a value.
 
-```js
+```typescript
 export class <%= classify(name) %> Component implements OnInit { }
 ```
 
 Our Jest schematic didn’t require any dynamic values, so I was able to keep things simple and simply move the files into the host.
 
-```js
+```typescript
 apply(
     url('./files'),
     [move('./`)]
