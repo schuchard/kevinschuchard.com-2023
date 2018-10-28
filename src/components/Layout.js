@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import Navbar from '../components/Navbar'
+import 'prismjs/themes/prism-tomorrow.css'
 import './all.sass'
 
 const TemplateWrapper = ({ children, metaDesc }) => (
