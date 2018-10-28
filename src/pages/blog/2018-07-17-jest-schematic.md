@@ -167,4 +167,4 @@ Then in any Angular project directory:
 ng g @briebug/jest-schematic:add
 ```
 
-The source code can be found at: https://github.com/briebug/jest-schematic
+The source code can be found at: [github.com/briebug/jest-schematic](https://github.com/briebug/jest-schematic)
