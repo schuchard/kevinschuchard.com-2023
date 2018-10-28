@@ -65,7 +65,7 @@ Here’s an example of a schematic configuration option from the `schema.json` f
 
 In order to prompt the user for a selection, you can both provide suggestions and limit the possible choices with the `enum` type. The message displayed to the user is specified in the `x-prompt` field.
 
-```json
+```json{2,5}
 "printWidth": {
     "enum": [80, 100, 120, 140],
     "description": "Specify the line length that the printer will wrap on.",
