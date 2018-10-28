@@ -1,0 +1,128 @@
+$color-white: #ffffff
+$color-black: #000000
+$color-dark: #282c34 // dark blue
+$color-pink: #c516b4
+$color-purple: #eba7e6
+
+$color-char: #D8DEE9
+$color-comment: #B2B2B2
+$color-keyword: #c5a5c5
+$color-code-bg: $color-dark
+$color-lineHighlight: #353b45 // $color-dark + extra lightness
+$color-primitive: #5a9bcf
+$color-string: #8dc891
+$color-variable: #d7deea
+$color-boolean: #ff8b50
+$color-punctuation: #88C6BE
+$color-tag: #fc929e
+$color-function: #79b6f2
+$color-className: #FAC863
+$color-method: #6699CC
+$color-operator: #fc929e
+
+.gatsby-highlight
+  background: $color-dark
+  color: $color-white
+  border-radius: 5px
+  overflow: auto
+  tab-size: 1.5em
+
+.gatsby-highlight > code[class*="language-"]
+.gatsby-highlight > pre[class*="language-"]
+.gatsby-highlight > pre.-code
+    height: auto !important
+    margin: 1rem
+    font-size: 14px
+    line-height: 20px
+    white-space: pre-wrap
+    word-break: break-word
+
+.gatsby-highlight + .gatsby-highlight
+  margin-top: 20px
+
+.gatsby-highlight-code-line
+  background-color: $color-lineHighlight
+  display: block
+  margin: -0.125rem calc(-1rem - 15px)
+  padding: 0.125rem calc(1rem + 15px)
+
+.token.attr-name
+  color: $color-keyword
+
+.token.comment
+.token.block-comment
+.token.prolog
+.token.doctype
+.token.cdata
+    color: $color-comment
+
+.token.property // json key
+    color: $color-purple
+.token.number
+.token.function-name
+.token.constant
+.token.symbol
+.token.deleted
+    color: $color-primitive
+
+.token.boolean
+  color: $color-boolean
+
+.token.tag
+  color: $color-tag
+
+.token.string
+  color: $color-string
+
+.token.punctuation
+  color: $color-punctuation
+
+.token.selector
+.token.char
+.token.builtin
+.token.inserted
+    color: $color-char
+
+.token.function
+  color: $color-function
+
+.token.operator
+.token.entity
+.token.url
+.token.variable
+    color: $color-variable
+
+.token.attr-value
+  color: $color-string
+
+.token.keyword
+  color: $color-keyword
+
+.token.atrule
+.token.class-name
+    color: $color-className
+
+.token.important
+  font-weight: 400
+
+
+.token.bold
+  font-weight: 700
+
+.token.italic
+  font-style: italic
+
+.token.entity
+  cursor: help
+
+.namespace
+  opacity: 0.7
+
+// inline code
+\:not(pre) > code[class*="language-"]
+  background: #f3f3f3
+  color: $color-pink
+
+// code blocks
+pre[class*="language-"]
+  background: $color-code-bg
