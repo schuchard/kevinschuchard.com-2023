@@ -1,27 +1,28 @@
-$colors-white: #ffffff
-$colors-black: #000000
-$colors-dark: #282c34 // dark blue
-$colors-pink: #d718c5
+$color-white: #ffffff
+$color-black: #000000
+$color-dark: #282c34 // dark blue
+$color-pink: #c516b4
+$color-purple: #eba7e6
 
-$colors-char: #D8DEE9
-$colors-comment: #B2B2B2
-$colors-keyword: #c5a5c5
-$colors-lineHighlight: #353b45 // $colors-dark + extra lightness
-$colors-primitive: #5a9bcf
-$colors-string: #8dc891
-$colors-variable: #d7deea
-$colors-boolean: #ff8b50
-$colors-punctuation: #88C6BE
-$colors-tag: #fc929e
-$colors-function: #79b6f2
-$colors-className: #FAC863
-$colors-method: #6699CC
-$colors-operator: #fc929e
+$color-char: #D8DEE9
+$color-comment: #B2B2B2
+$color-keyword: #c5a5c5
+$color-lineHighlight: #353b45 // $color-dark + extra lightness
+$color-primitive: #5a9bcf
+$color-string: #8dc891
+$color-variable: #d7deea
+$color-boolean: #ff8b50
+$color-punctuation: #88C6BE
+$color-tag: #fc929e
+$color-function: #79b6f2
+$color-className: #FAC863
+$color-method: #6699CC
+$color-operator: #fc929e
 
 .gatsby-highlight
-  background: $colors-dark
-  color: $colors-white
-  border-radius: 10
+  background: $color-dark
+  color: $color-white
+  border-radius: 5px
   overflow: auto
   tab-size: 1.5em
 
@@ -30,75 +31,75 @@ $colors-operator: #fc929e
 .gatsby-highlight > pre.-code
     height: auto !important
     margin: 1rem
-    font-size: 14
+    font-size: 14px
     line-height: 20px
     white-space: pre-wrap
     word-break: break-word
 
 .gatsby-highlight + .gatsby-highlight
-  margin-top: 20
+  margin-top: 20px
 
 .gatsby-highlight-code-line
-  background-color: $colors-lineHighlight
+  background-color: $color-lineHighlight
   display: block
   margin: -0.125rem calc(-1rem - 15px)
   padding: 0.125rem calc(1rem + 15px)
 
 .token.attr-name
-  color: $colors-keyword
+  color: $color-keyword
 
 .token.comment
 .token.block-comment
 .token.prolog
 .token.doctype
 .token.cdata
-    color: $colors-comment
+    color: $color-comment
 
 .token.property // json key
-    color: #eba7e6
+    color: $color-purple
 .token.number
 .token.function-name
 .token.constant
 .token.symbol
 .token.deleted
-    color: $colors-primitive
+    color: $color-primitive
 
 .token.boolean
-  color: $colors-boolean
+  color: $color-boolean
 
 .token.tag
-  color: $colors-tag
+  color: $color-tag
 
 .token.string
-  color: $colors-string
+  color: $color-string
 
 .token.punctuation
-  color: $colors-punctuation
+  color: $color-punctuation
 
 .token.selector
 .token.char
 .token.builtin
 .token.inserted
-    color: $colors-char
+    color: $color-char
 
 .token.function
-  color: $colors-function
+  color: $color-function
 
 .token.operator
 .token.entity
 .token.url
 .token.variable
-    color: $colors-variable
+    color: $color-variable
 
 .token.attr-value
-  color: $colors-string
+  color: $color-string
 
 .token.keyword
-  color: $colors-keyword
+  color: $color-keyword
 
 .token.atrule
 .token.class-name
-    color: $colors-className
+    color: $color-className
 
 .token.important
   font-weight: 400
@@ -118,5 +119,9 @@ $colors-operator: #fc929e
 
 // inline code
 \:not(pre) > code[class*="language-"]
-  background: #f3f3f3;
-  color: $colors-pink;
+  background: #f3f3f3
+  color: $color-pink
+
+// code blocks
+pre[class*="language-"]
+  background: #233239
