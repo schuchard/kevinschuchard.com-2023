@@ -1,6 +1,7 @@
 $colors-white: #ffffff
 $colors-black: #000000
-$colors-pink: #ff00d0
+$colors-dark: #282c34 // dark blue
+$colors-pink: #d718c5
 
 $colors-char: #D8DEE9
 $colors-comment: #B2B2B2
@@ -24,8 +25,8 @@ $colors-operator: #fc929e
   overflow: auto
   tab-size: 1.5em
 
-.gatsby-highlight > code[class*="kevin-code-"]
-.gatsby-highlight > pre[class*="kevin-code-"]
+.gatsby-highlight > code[class*="language-"]
+.gatsby-highlight > pre[class*="language-"]
 .gatsby-highlight > pre.-code
     height: auto !important
     margin: 1rem
@@ -53,7 +54,8 @@ $colors-operator: #fc929e
 .token.cdata
     color: $colors-comment
 
-.token.property
+.token.property // json key
+    color: #eba7e6
 .token.number
 .token.function-name
 .token.constant
@@ -114,6 +116,7 @@ $colors-operator: #fc929e
 .namespace
   opacity: 0.7
 
+// inline code
 \:not(pre) > code[class*="language-"]
   background: #f3f3f3;
   color: $colors-pink;
