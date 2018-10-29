@@ -9,9 +9,7 @@ tags:
   - center
 ---
 
-# Centering rotated text in a vertical container
-
-## [Demo](https://aonipgoj.github.stackblitz.io/)
+## [Demo](https://stackblitz.com/github/schuchard/rotate-vertical-text-ng)
 
 Rotating text is quite simple with the `transform` and `rotate` property.
 
