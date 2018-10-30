@@ -19,11 +19,11 @@ Rotating text is quite simple with the `transform` and `rotate` property.
 }
 ```
 
-Once you rotate the text though, you then might face the issue of positioning. Especially related to a containing element. In this example, I want the rotated text to fit into the layout flow of its sibling and parent elements. That way I can take advantage of things like centering, both vertically and horizontally.
+Once the text is rotated, then you might face the issue of positioning. Especially related to a containing element. In this example, I want to center, horizontally and vertically, the rotated text in its containing element. I also want the containing element to maintain its relative position alongside its sibling elements.
 
-Let’s say we have to columns on each end of a container with some main content in the center, similar to how a ticket might look. I want the outer columns to display vertically rotated and centered text on each end.
+Let’s say we have two columns on each end of a container with some main content in the center, similar to how a ticket might look. I want the outer columns to display vertically rotated and centered text on each end.
 
-Lets use the following HTML as an example.
+Let's use the following HTML as an example.
 
 ```html
 <div class="container">
@@ -33,9 +33,9 @@ Lets use the following HTML as an example.
 </div>
 ```
 
-First give the `col` `relative`  positioning, then you can `absolute`'ly positing the inner content, in this example the `span` elements.
+First, give the `col` `relative` positioning. Then you can `absolute`'ly positioning the inner content, which in this example are the `span` elements.
 
-Next, center the column content. I’ve broken out the styles into two classes, `rotate` and `rotate-up, rotate-down`
+Next, center the column content. I’ve broken out the styles into two classes, `rotate` and `rotate-up, rotate-down`.
 
 ```css
 .rotate {
@@ -53,9 +53,9 @@ Next, center the column content. I’ve broken out the styles into two classes, 
 }
 ```
 
-Now we have rotated text that's dynamically centered both vertically and horizontally within its container. We also can still reason about the outer elements layout in a horizontal way.
+Now we have rotated text that's centered both vertically and horizontally within its container. It's responsive to the container height and width and we can still reason about the layout of the outer elements in a horizontal way if necessary.
 
 # Resources
 
 - [Stackblitz demo](https://stackblitz.com/github/schuchard/rotate-vertical-text-ng)
-- [github repo](https://github.com/schuchard/rotate-vertical-text-ng)
+- [Github repo](https://github.com/schuchard/rotate-vertical-text-ng)
