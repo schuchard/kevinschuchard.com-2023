@@ -7,6 +7,7 @@ tags:
   - angular
   - css
   - center
+  - demo
 ---
 
 ## [Demo](https://stackblitz.com/github/schuchard/rotate-vertical-text-ng)
