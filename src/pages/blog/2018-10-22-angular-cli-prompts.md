@@ -78,6 +78,22 @@ For `boolean`'s you likely already have `type: boolean` and/or a `default` value
 
 Here's an example diff migrating to CLI prompts - [Github](https://github.com/schuchard/prettier-schematic/commit/c9264171fd71e3adc9a83508ad06f3ca1a506c3c?diff=split)
 
+## Connecting the Schema
+
+To make the schematic aware of the schema you'll need to configure the schema in the `collection.json` file. For each schematic under the `schematics` key, make sure you provide a `schema` key with a path to the appropriate `schema.json` file.
+
+```json{6}
+{
+  "schematics": {
+    "prettier": {
+      "description": "Adds Prettier to the application.",
+      "factory": "./prettier/index",
+      "schema": "./prettier/schema.json"
+    }
+  }
+}
+```
+
 ## Validation
 
 All user responses are validated against the property's schema. For example, string type properties can use a minimum length or regular expression constraint to control the allowed values. In the event the response fails validation, the user will be asked to enter a new value.
