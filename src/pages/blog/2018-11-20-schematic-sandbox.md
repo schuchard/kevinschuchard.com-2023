@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: Building Schematics with a Sandbox
-date: 2018-11-19T00:00:00.000Z
+date: 2018-11-20T00:00:00.000Z
 description: Build Schematics quick and easy with visual diffs.
 tags:
   - angular
@@ -16,7 +16,7 @@ tags:
 
 When it comes to testing schematics, unit tests are often the method of choice. These are valuable and provide the benefits that unit tests generally do. They’re fast, isolated, easy to mock, and can provide a quick feedback loop.
 
-When it comes to E2E tests, the conversations start to vary. Generally speaking, it’s not uncommon to hear E2E tests being described as brittle, slow, and requires more setup than unit tests. Libraries like [Cypress](https://www.cypress.io/) and a better understanding of what to test go a long way to fixing these issues but that’s another conversation altogether 🙂.
+When it comes to E2E tests, the conversations start to vary. Generally speaking, it’s not uncommon to hear E2E tests being described as brittle, slow, and requiring more setup than unit tests. Libraries like [Cypress](https://www.cypress.io/) and a better understanding of what to test go a long way to fixing these issues but that’s another conversation altogether 🙂.
 
 I mention E2E tests because underneath all the “negatives” I just discussed, they're extremely accurate ways to test applications. No simulations, no mocking, no configs. Just the code executing in its targeted environment.
 
