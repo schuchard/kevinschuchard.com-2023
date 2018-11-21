@@ -251,6 +251,6 @@ Here are a few schematics I’ve written that use the Sandbox testing approach. 
 - [https://github.com/briebug/ngrx-entity-schematic](https://github.com/briebug/ngrx-entity-schematic)
 - [https://github.com/briebug/jest-schematic](https://github.com/briebug/jest-schematic)
 
-Interested more in CLI prompts? I have an article on that as well.
+Interested in CLI prompts? I have an article on that as well.
 
 - [https://www.kevinschuchard.com/blog/2018-10-22-angular-cli-prompts/](https://www.kevinschuchard.com/blog/2018-10-22-angular-cli-prompts/)
