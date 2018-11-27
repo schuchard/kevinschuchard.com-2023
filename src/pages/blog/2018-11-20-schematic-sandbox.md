@@ -47,7 +47,7 @@ The sandbox will be a version-controlled sibling application that you’ll run y
 Placing the sandbox inside the schematic repository provides several benefits.
 
 - Everyone develops against the same target app, or apps if you configure more than one.
-- Once you execute the schematic, it’s trivial to see a diff of the changes in your editor. This is the number one benefit and my initial goal when I start trying to solve this problem.
+- Once you execute the schematic, it’s trivial to see a diff of the changes in your editor. This is the number one benefit and my initial goal when I started trying to solve this problem.
 
 ![app-module-diff](../../img/blog/2018-11-19-schematic-sandbox/app-module-diff.png)
 
