@@ -11,30 +11,25 @@ export default class IndexPage extends React.Component {
     return (
       <Layout metaDesc="Kevin Schuchard blog posts">
         <section className="section">
-          <div className="container">
+          <div className="column is-three-fifths is-offset-one-fifth">
             <div className="content">
               <h1 className="has-text-weight-bold is-size-2">Latest Posts</h1>
             </div>
             {posts
               .map(({ node: post }) => (
                 <div
-                  className="content box"
+                  className="home-post"
                   key={post.id}
                 >
-                  <p>
+                  <h1>
                     <Link className="has-text-primary index-list-title" to={post.fields.slug}>
                       {post.frontmatter.title}
                     </Link>
                     <span> &bull; </span>
                     <small>{post.frontmatter.date}</small>
-                  </p>
+                  </h1>
                   <p>
                     {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
                   </p>
                 </div>
               ))}
@@ -61,7 +56,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 400)
+          excerpt(pruneLength: 200)
           id
           fields {
             slug
