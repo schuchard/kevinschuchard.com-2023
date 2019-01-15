@@ -8,6 +8,7 @@ tags:
   - css
   - center
   - demo
+example: https://stackblitz.com/edit/vertical-text?ctl=1&embed=1&file=src/app/app.component.ts&hideExplorer=1&view=preview
 ---
 
 ## [Demo](https://stackblitz.com/github/schuchard/rotate-vertical-text-ng)
