@@ -14,23 +14,21 @@ tags:
 
 # Testing Schematics
 
-When it comes to testing schematics, unit tests are often the method of choice. These are valuable and provide the benefits that unit tests generally do. They’re fast, isolated, easy to mock, and can provide a quick feedback loop.
+When I started writing schematics I found it challenging to visually see what my code was doing against an Angular application. I wanted a quick feedback loop similar to what front end development has like live-reload. Before each release, I wanted to run the schematic against a real Angular application and assert that the schematic ran successfully while not breaking anything in the process. These testing needs guided me to build a Sandbox for developing schematics. You can find a starter project with it **[here](https://github.com/schuchard/schematic-starter)**.
 
-When it comes to E2E tests, the conversations start to vary. Generally speaking, it’s not uncommon to hear E2E tests being described as brittle, slow, and requiring more setup than unit tests. Libraries like [Cypress](https://www.cypress.io/) and a better understanding of what to test go a long way to fixing these issues but that’s another conversation altogether 🙂.
+What I described above shares a lot in common with E2E tests. Though, it doesn't come with many of the common shortcomings such as slow execution and brittleness. They're extremely accurate ways to test applications. No simulations, no mocking, no configs. Just the code executing in its targeted environment.
 
-I mention E2E tests because underneath all the “negatives” I just discussed, they're extremely accurate ways to test applications. No simulations, no mocking, no configs. Just the code executing in its targeted environment.
-
-If you’ve developed a schematic before you’ve probably reached a point where you’d like to test your code against a real Angular application. Ideally, it would be nice to do this repeatedly as you develop each new feature. Even better, before each release, you could run your schematic against a real Angular application and assert that the functionality exists and that it didn’t break anything in the process.
-
-I ran into those needs when I started writing schematics and came up with a way to achieve all those things in a fairly simple way. I call it the Sandbox and you can find a starter project with it **[here](https://github.com/schuchard/schematic-starter)**.
+Schematics can also be unit tested just like any other unit of code and provide the benefits that unit tests generally do. They’re fast, isolated, easy to mock, and can provide a quick feedback loop. That being said, this article will focus on the Sandbox method.
 
 # The Sandbox
 
-Adding a sandbox allows you to repeatedly run the schematic against an Angular app. With a few scripts, you can run these as fast as than unit tests and easily see a diff of what your schematic did. You can also run them programmatically, like as part of a `test` script before releases.
+The sandbox is a version controlled directory in your schematic repository that will generally contain an Angular application. For testing and development, you'll execute your schematic against the application in the sandbox. Since the sandbox is version controlled, you can quickly see the changes made to the Angular app after the schematic is run.
+
+With a few scripts that we'll setup below, you can repeatedly run the schematic during development and easily see a diff of what your schematic does in the sandbox. Since we're scripting this behavior, sandbox testing can be included as part of a `test` script before releases.
 
 ## Architecture overview
 
-The sandbox will be a version-controlled sibling application that you’ll run your schematic against through npm/yarn linking.
+The sandbox directory will contain a version-controlled Angular application that the schematic will run against through npm/yarn linking.
 
 ```bash
 •
