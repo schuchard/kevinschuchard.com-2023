@@ -47,22 +47,22 @@ The sandbox will be a version-controlled sibling application that you’ll run y
 Placing the sandbox inside the schematic repository provides several benefits.
 
 - Everyone develops against the same target app, or apps if you configure more than one.
-- Once you execute the schematic, it’s trivial to see a diff of the changes in your editor. This is the number one benefit and my initial goal when I started trying to solve this problem.
+- Once you execute the schematic, it’s trivial to see a diff of the changes to your sandbox app in your editor. This is the number one benefit and my initial goal when I started trying to solve this problem.
 
 ![app-module-diff](../../img/blog/2018-11-19-schematic-sandbox/app-module-diff.png)
 
-- With a short git command that I’ll show soon, we can easily reset the state of the sandbox and re-run the schematic. This provides a short feedback loop. Make a change, run the schematic, visually and/or programmatically assert, clean the sandbox, and repeat.
+- With a short git command that I’ll introduce below, we can easily reset the state of the sandbox and re-run the schematic. This provides a short and fast feedback loop. Make a change, run the schematic, visually and/or programmatically assert, clean the sandbox, and repeat.
 - Since the sandbox is part of the repository, you can tie this into an automated release process where the schematic is tested against the sandbox, assertions are made, and the release is published.
 
 # Adding a sandbox
 
 First, add a sibling `./sandbox` directory next to your schematic `./src` directory. Inside you can create whatever type of application you expect your schematic to run against. I generally run `ng new` in the sandbox but have also configured an application with more specific files/folders/features to aid in testing.
 
-You can also configure multiple sandboxes but I won’t be covering that here. If that’s something you’d like, you’ll need to refactor your scripts to run against each sandbox. We’ll cover the scripts below.
+You may also configure multiple sandboxes, however I will not be covering that here. If that’s something you require, you’ll need to refactor your scripts to run against each sandbox. We’ll cover the scripts below.
 
-## Sandbox modifications
+## Sandbox Preparation
 
-If you’re running `ng new` inside the sandbox I generally make two changes to the sandbox `scripts` in the `package.json`. I use both of these commands when testing the sandbox
+I generally make two changes to the sandbox `scripts` in the `package.json`. I use both of these commands when testing the sandbox to ensure we are testing production code, and to avoid issues with watched tests.
 
 ```json
 "build": "ng build --prod --progress=false",
@@ -93,7 +93,7 @@ Here are the final scripts you’ll need in the schematics `package.json` file.
 
 ## Build the schematic
 
-You may already have this script but for this post, we’ll assume that your script to `build` the schematic is as follows. This will compile the Typescript files to Javascript.
+You may already have this script, but for this post we’ll assume that your script to `build` the schematic is as follows. This will compile the Typescript files to Javascript.
 
 ```json
 "build": "tsc -p tsconfig.json"
@@ -101,7 +101,7 @@ You may already have this script but for this post, we’ll assume that your scr
 
 ## Clean up
 
-Since schematics generally make file system changes, let’s start with resting the sandbox before we begin executing the schematic. Add a `clean` script that resets the sandbox to the version-controlled state.
+Since schematics often make file system changes to your sandbox code, let’s start with resetting the sandbox before we begin executing the schematic. Add a `clean` script that resets the sandbox to the version-controlled state.
 
 ```json
 "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox"
@@ -109,19 +109,23 @@ Since schematics generally make file system changes, let’s start with resting 
 
 ## Link the sandbox
 
-This sandbox pattern only works if we can execute the schematic locally against another local application. The `link:schematic` script will create a symlink to your global package directory under the `package.json['name']` value. Then we’ll `cd` into the sandbox and link to that package name. Now, whenever that package is requested inside the sandbox it will execute the code one directory up in `./src`. Once you run the schematic against the sandbox, you can view this “linking” by looking in the sandbox’s `node_modules` under to schematic package name.
+This sandbox pattern only works if we can execute the schematic locally against another local application. The `link:schematic` script will create a symlink of the schematic to your global package directory under the `package.json['name']` value. Then we’ll `cd` into the sandbox and link to the schematic package name. Now, whenever that package is requested inside the sandbox it will execute the code one directory up in `./src`.
 
 ```json
 "link:schematic": "yarn link && cd sandbox && yarn link schematic-collection"
 ```
 
+You can verify this linking succeeded by checking the sandbox's `node_modules` under the schematic's package name.
+
 ## Run the schematic
 
-Next, let’s configure how we’ll test the schematic against the sandbox. First, we’ll create the script to run the schematic which we’ll reuse later. The script will `cd` into the sandbox and run the `generate` command from the Angular CLI. You can pass any options your schematic requires if necessary. If you’re taking advantage of Schematic [prompts](https://www.kevinschuchard.com/blog/2018-10-22-angular-cli-prompts/) you can inline the options to avoid bring prompted and create a separate launch script to test the prompts.
+Next, let’s configure how we’ll test the schematic against the sandbox. First, we’ll create the script to run the schematic which we’ll reuse later. The script will `cd` into the sandbox and run the `generate` command from the Angular CLI. You can pass any options your schematic requires if necessary.
 
 ```json
 "launch": "cd sandbox && ng g schematic-collection:schematic-name"
 ```
+
+If you’re taking advantage of Schematic [prompts](https://www.kevinschuchard.com/blog/2018-10-22-angular-cli-prompts/) you can inline the options to avoid bring prompted and create a separate launch script to test the prompts.
 
 ### Avoid CLI prompts with inline options
 
@@ -129,7 +133,7 @@ Next, let’s configure how we’ll test the schematic against the sandbox. Firs
 "launch": "cd sandbox && ng g schematic-collection:schematic-name --name=hello"
 ```
 
-Now that we have our `launch` command lets create a script that resets the sandbox before running the schematic. We’ll combine two scripts that we’ve made so far. This is helpful when you need to rerun the schematic without changing the schematic code.
+Now that we have our `launch` command lets create a script that resets the sandbox before running the schematic. We’ll combine two scripts that we’ve made so far, `clean` and `launch`. This is helpful when you need to rerun the schematic without changing the schematic code.
 
 ```json
 "clean:launch": "yarn clean && yarn launch"
@@ -141,13 +145,13 @@ Finally, an action you’ll likely perform the most will build the schematic, re
 "build:clean:launch": "yarn build && yarn clean:launch"
 ```
 
-You can also pass options to the wrapped `launch` command by appending them
+You can also pass options to the wrapped `launch` command by appending them to the yarn/npm script:
 
 ```bash
 yarn build:clean:launch --name=hello
 ```
 
-## Testing
+# Testing
 
 So far we’ve configured how to build, and run our schematic as well as reset the sandbox back to its "initial" state. This provides us with the ability to visually see what our schematic is doing against the sandbox application. But we can improve this further. For example, after our schematic runs, it might be a good idea to make sure the app still operates normally. One way to test this is to run `ng {test, e2e, lint, build}` in the sandbox application.
 
@@ -167,7 +171,7 @@ Now we have a single script to test our Schematic end to end. This is useful if 
 
 ## Publishing
 
-Eventually, you’re going to want to publish your schematic for the world to use. Fortunately, we’ve added the functionality to develop faster and with better confidence by being able to see what our schematic is doing. We’ve also orchestrated our scripts in a way that makes it trivial to confidently publish our schematic. Although everyone’s publishing needs vary, it’s now easy to configure a publishing script.
+Eventually you’re going to want to publish your schematic for the world to use. Fortunately, we’ve added the functionality to develop faster and with better confidence by being able to see what our schematic is doing. We’ve also orchestrated our scripts in a way that makes it trivial to confidently publish our schematic. Although everyone’s publishing needs vary, it’s now easy to configure a publishing script.
 
 ```json
 "publish": "yarn test && PUBLISH_CMD"
