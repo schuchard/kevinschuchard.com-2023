@@ -14,23 +14,21 @@ tags:
 
 # Testing Schematics
 
-When it comes to testing schematics, unit tests are often the method of choice. These are valuable and provide the benefits that unit tests generally do. They’re fast, isolated, easy to mock, and can provide a quick feedback loop.
+When I started writing schematics I found it challenging to visually see what my code was doing against an Angular application. I wanted a quick feedback loop similar to what front end development has like live-reload. Before each release, I wanted to run the schematic against a real Angular application and assert that the schematic ran successfully while not breaking anything in the process. These testing needs guided me to build a Sandbox for developing schematics. You can find a starter project with it **[here](https://github.com/schuchard/schematic-starter)**.
 
-When it comes to E2E tests, the conversations start to vary. Generally speaking, it’s not uncommon to hear E2E tests being described as brittle, slow, and requiring more setup than unit tests. Libraries like [Cypress](https://www.cypress.io/) and a better understanding of what to test go a long way to fixing these issues but that’s another conversation altogether 🙂.
+What I described above shares a lot in common with E2E tests. Though, it doesn't come with many of the common shortcomings such as slow execution and brittleness. They're extremely accurate ways to test applications. No simulations, no mocking, no configs. Just the code executing in its targeted environment.
 
-I mention E2E tests because underneath all the “negatives” I just discussed, they're extremely accurate ways to test applications. No simulations, no mocking, no configs. Just the code executing in its targeted environment.
-
-If you’ve developed a schematic before you’ve probably reached a point where you’d like to test your code against a real Angular application. Ideally, it would be nice to do this repeatedly as you develop each new feature. Even better, before each release, you could run your schematic against a real Angular application and assert that the functionality exists and that it didn’t break anything in the process.
-
-I ran into those needs when I started writing schematics and came up with a way to achieve all those things in a fairly simple way. I call it the Sandbox and you can find a starter project with it **[here](https://github.com/schuchard/schematic-starter)**.
+Schematics can also be unit tested just like any other unit of code and provide the benefits that unit tests generally do. They’re fast, isolated, easy to mock, and can provide a quick feedback loop. That being said, this article will focus on the Sandbox method.
 
 # The Sandbox
 
-Adding a sandbox allows you to repeatedly run the schematic against an Angular app. With a few scripts, you can run these as fast as than unit tests and easily see a diff of what your schematic did. You can also run them programmatically, like as part of a `test` script before releases.
+The sandbox is a version controlled directory in your schematic repository that will generally contain an Angular application. For testing and development, you'll execute your schematic against the application in the sandbox. Since the sandbox is version controlled, you can quickly see the changes made to the Angular app after the schematic is run, and have the ability to reset to a known pre-test state as often as you need.
+
+With a few scripts that we'll set up below, you can repeatedly run the schematic during development and easily see a diff of what your schematic does in the sandbox. Since we're scripting this behavior, sandbox testing can be included as part of a `test` script before releases.
 
 ## Architecture overview
 
-The sandbox will be a version-controlled sibling application that you’ll run your schematic against through npm/yarn linking.
+The sandbox directory will contain a version-controlled Angular application that the schematic will run against through npm/yarn linking.
 
 ```bash
 •
@@ -109,7 +107,7 @@ Since schematics often make file system changes to your sandbox code, let’s st
 
 ## Link the sandbox
 
-This sandbox pattern only works if we can execute the schematic locally against another local application. The `link:schematic` script will create a symlink of the schematic to your global package directory under the `package.json['name']` value. Then we’ll `cd` into the sandbox and link to the schematic package name. Now, whenever that package is requested inside the sandbox it will execute the code one directory up in `./src`.
+This sandbox pattern only works if we can execute the schematic locally against another local application. The `link:schematic` script will create a symlink of the schematic to your global package directory under the `package.json['name']` value. We will then `cd` into the sandbox and link to the schematic package name. Now, whenever that package is requested inside the sandbox it will execute the code one directory up in `./src`.
 
 ```json
 "link:schematic": "yarn link && cd sandbox && yarn link schematic-collection"
@@ -153,7 +151,7 @@ yarn build:clean:launch --name=hello
 
 # Testing
 
-So far we’ve configured how to build, and run our schematic as well as reset the sandbox back to its "initial" state. This provides us with the ability to visually see what our schematic is doing against the sandbox application. But we can improve this further. For example, after our schematic runs, it might be a good idea to make sure the app still operates normally. One way to test this is to run `ng {test, e2e, lint, build}` in the sandbox application.
+So far we’ve configured how to build, and run our schematic as well as reset the sandbox back to its "initial" state. This provides us with the ability to visually see what our schematic is doing against the sandbox application. We can improve this further, though. For example, after our schematic runs, it might be a good idea to make sure the app still operates normally. One way to test this is to run `ng {test, e2e, lint, build}` in the sandbox application.
 
 To do that let’s create a script that’s similar to what we did with `launch`.
 
@@ -161,17 +159,17 @@ To do that let’s create a script that’s similar to what we did with `launch`
 "test:sandbox": "cd sandbox && yarn lint && yarn test && yarn e2e && yarn build"
 ```
 
-Next let’s wrap up some additional functionality into a single script. Here we’ll do a `build`, `clean`, and `launch`. Then we’ll run the tests we specified in `test:sandbox` and finally we’ll reset the sandbox after the test in case we’re running this locally with `clean`.
+Now let's wrap up some additional functionality into a single script. Here we’ll do a `build`, `clean`, and `launch`. Then we’ll run the tests we specified in `test:sandbox` and finally we’ll reset the sandbox after the test in case we’re running this locally with `clean`.
 
 ```json
 "test": "yarn build:clean:launch && yarn test:sandbox && yarn clean"
 ```
 
-Now we have a single script to test our Schematic end to end. This is useful if you have a release process that runs test(s) before publishing. Now you can rely on this script to pass/fail your release and you’re on your way to CI/CD bliss. 🙂
+We now have a single script to test our Schematic end to end. This is useful if you have a release process that runs test(s) before publishing. Now you can rely on this script to pass/fail your release and you’re on your way to CI/CD bliss. 🙂
 
 ## Publishing
 
-Eventually you’re going to want to publish your schematic for the world to use. Fortunately, we’ve added the functionality to develop faster and with better confidence by being able to see what our schematic is doing. We’ve also orchestrated our scripts in a way that makes it trivial to confidently publish our schematic. Although everyone’s publishing needs vary, it’s now easy to configure a publishing script.
+Eventually you’re going to want to publish your schematic for the world to use. Fortunately we’ve added the functionality to develop faster and with better confidence by being able to see what our schematic is doing. We’ve also orchestrated our scripts in a way that makes it trivial to confidently publish our schematic. Although everyone’s publishing needs vary, it’s now easy to configure a publishing script.
 
 ```json
 "publish": "yarn test && PUBLISH_CMD"
