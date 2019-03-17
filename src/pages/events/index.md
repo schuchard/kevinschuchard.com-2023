@@ -24,7 +24,8 @@ events:
       state: Colorado
       country: USA
     otherLinks:
-     - https://www.meetup.com/RockyMountainAngular/events/239567196/
+      - https://www.meetup.com/RockyMountainAngular/events/239567196/
+
   - id: 879acb16-0dfd-41ac-b779-9ea0c3eae548
     title: 'RMA: Service Worker'
     description: >
@@ -43,7 +44,8 @@ events:
       state: Colorado
       country: USA
     otherLinks:
-     - https://www.meetup.com/RockyMountainAngular/events/243785541/
+      - https://www.meetup.com/RockyMountainAngular/events/243785541/
+
   - id: 7c64e8e5-126d-4444-b860-7a7ca19afe66
     title: 'RMA: Angular Panel'
     description: >
@@ -57,10 +59,11 @@ events:
     embedLink: ''
     location:
       name: Battery 621
-      address:  621 Kalamath St
-      city:  Denver
+      address: 621 Kalamath St
+      city: Denver
       state: Colorado
       country: USA
+
   - id: f36ef462-dc02-4b54-a325-346d5b3aad87
     title: 'RMA: Angular Service Worker'
     description: >
@@ -79,7 +82,8 @@ events:
       state: Colorado
       country: USA
     otherLinks:
-     - https://www.meetup.com/RockyMountainAngular/events/251487685/
+      - https://www.meetup.com/RockyMountainAngular/events/251487685/
+
   - id: 6e81d1b6-a0f3-4d1a-ad33-7538c5abce15
     title: 'RMA: Testing: The Good Parts'
     description: >
@@ -100,5 +104,68 @@ events:
       state: Colorado
       country: USA
     otherLinks:
-     - https://www.meetup.com/RockyMountainAngular/events/255033294/
+      - https://www.meetup.com/RockyMountainAngular/events/255033294/
+
+  - id: 6e9d38a6-1633-4751-bd7c-36631d0b8fc1
+    title: 'Adventures in Angular: podcast guest - Schematics'
+    description: >
+      Podcast guest discussing schematics for Angular
+    date: 2018-12-05
+    image: ''
+    alt: ''
+    slides: ''
+    video: ''
+    repo: ''
+    embedLink: https://devchat.tv/adv-in-angular/aia-221-angular-schematics-from-the-ground-up-with-brian-love-kevin-schuchard/
+
+  - id: 728776cc-29b9-4ff5-9df5-22d42dbb6af8
+    title: 'ngHouston: podcast guest - Schematics'
+    description: >
+      Podcast guest discussing schematics for Angular
+    date: 2019-01-02
+    image: ''
+    alt: ''
+    slides: ''
+    video: https://www.youtube.com/watch?v=phDaa6_eZsQ
+    repo: ''
+    embedLink: https://www.youtube.com/watch?v=phDaa6_eZsQ
+    otherLinks:
+      - https://www.meetup.com/ngHouston/events/257718669/
+
+  - id: a572c860-121c-48fb-b4a6-8940e2ed6b01
+    title: 'ngHouston: podcast panelist - HTTP2'
+    description: >
+      Panelist discussing Angular Transports / HTTP2 with Ilia Idakiev
+    date: 2019-02-06
+    image: ''
+    alt: ''
+    slides: ''
+    video: https://www.youtube.com/watch?v=wmDwue-m1rY
+    repo: ''
+    embedLink: https://www.youtube.com/watch?v=wmDwue-m1rY
+    otherLinks:
+      - https://www.meetup.com/ngHouston/events/258703766/
+
+  - id: 00746b9e-cb5c-4e9f-8c16-5baf8d12452d
+    title: 'Angularlicious: podcast guest - Schematics'
+    description: >
+      Podcast guest discussing schematics for Angular
+    date: 2019-02-20
+    image: ''
+    alt: ''
+    slides: ''
+    video: ''
+    repo: ''
+    embedLink: <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/585720234&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+
+  - id: 26428cbd-ab07-4230-ab4e-bbe8cbf0ae94
+    title: 'Angular Kansas City: Schematic presentation'
+    description: >
+      Preview presentation for ngConf 2019
+    date: 2019-03-12
+    image: ''
+    alt: ''
+    slides: ''
+    video: ''
+    repo: ''
 ---
