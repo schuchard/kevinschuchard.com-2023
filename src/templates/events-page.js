@@ -14,14 +14,16 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events })
           <div className="column is-10 is-offset-1">
             <div className="section">
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h2>
-              {events.map((item) => (
-                <div key={item.id}>
-                  <h1>{item.title}</h1>
-                  <h3>{item.description}</h3>
-                  <span>{item.date}</span>
-                  <pre>{JSON.stringify(item)}</pre>
-                </div>
-              ))}
+              <ul>
+                {events.map((item) => (
+                  <li key={item.id}>
+                    <h1>{item.title}</h1>
+                    <h3>{item.description}</h3>
+                    <span>{item.date}</span>
+                    <pre>{JSON.stringify(item)}</pre>
+                  </li>
+                ))}
+              </ul>
               <PageContent className="content" content={content} />
             </div>
           </div>
@@ -65,6 +67,7 @@ export const eventsPageQuery = graphql`
       html
       frontmatter {
         title
+        description
         events {
           id
           title
@@ -72,7 +75,9 @@ export const eventsPageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           image
           alt
-          externalLink
+          slides
+          video
+          repo
           embedLink
           location {
             name
