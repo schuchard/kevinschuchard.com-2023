@@ -13,11 +13,11 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events })
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h2>
+              <h1 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h1>
               <ul>
                 {events.map((item) => (
                   <li key={item.id}>
-                    <h1>{item.title}</h1>
+                    <h2>{item.title}</h2>
                     <h3>{item.description}</h3>
                     <span>{item.date}</span>
                     <pre>{JSON.stringify(item)}</pre>
