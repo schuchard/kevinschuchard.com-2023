@@ -60,8 +60,6 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
                     ) : (
                       ''
                     )}
-
-                    <pre>{JSON.stringify(item)}</pre>
                   </li>
                 ))}
               </ul>
