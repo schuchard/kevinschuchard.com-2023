@@ -18,10 +18,10 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
               <h1 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h1>
               <ul>
                 {events.map((item) => (
-                  <li key={item.id}>
+                  <li key={item.id} className="event">
                     <h2>{item.title}</h2>
-                    <h3>{item.description}</h3>
-                    <span>{item.date}</span>
+                    <small>{item.date}</small>
+                    <p>{item.description}</p>
                     <pre>{JSON.stringify(item)}</pre>
                   </li>
                 ))}
