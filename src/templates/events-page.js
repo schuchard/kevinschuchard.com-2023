@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import { Helmet } from 'react-helmet';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 export const EventsPageTemplate = ({ title, content, contentComponent, events, helmet }) => {
   const PageContent = contentComponent || Content;
@@ -22,6 +23,44 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
                     <h2>{item.title}</h2>
                     <small>{item.date}</small>
                     <p>{item.description}</p>
+                    <div className="event-links">
+                      {item.slides ? (
+                        <OutboundLink href={item.slides} target="_blank" rel="noopener noreferrer">
+                          Slides
+                        </OutboundLink>
+                      ) : (
+                        ''
+                      )}
+                      {item.video ? (
+                        <OutboundLink href={item.video} target="_blank" rel="noopener noreferrer">
+                          Video
+                        </OutboundLink>
+                      ) : (
+                        ''
+                      )}
+                      {item.repo ? (
+                        <OutboundLink href={item.repo} target="_blank" rel="noopener noreferrer">
+                          Repo
+                        </OutboundLink>
+                      ) : (
+                        ''
+                      )}
+                    </div>
+                    {item.otherLinks ? (
+                      <ul>
+                        {item.otherLinks.map((l) => (
+                          <li key={l}>
+                            -{' '}
+                            <OutboundLink href={l} target="_blank" rel="noopener noreferrer">
+                              {l}
+                            </OutboundLink>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      ''
+                    )}
+
                     <pre>{JSON.stringify(item)}</pre>
                   </li>
                 ))}
