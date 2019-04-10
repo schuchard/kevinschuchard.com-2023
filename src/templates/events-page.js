@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
+import { Helmet } from 'react-helmet';
 
-export const EventsPageTemplate = ({ title, content, contentComponent, events }) => {
+export const EventsPageTemplate = ({ title, content, contentComponent, events, helmet }) => {
   const PageContent = contentComponent || Content;
 
   return (
     <section className="section section--gradient">
+      {helmet || ''}
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
@@ -44,11 +46,12 @@ const EventsPage = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout metaDesc="Kevin Schuchard Events page">
+    <Layout metaDesc="Kevin Schuchard Events">
       <EventsPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
+        helmet={<Helmet title={`Kevin Schuchard | ${post.frontmatter.title}`} />}
         events={post.frontmatter.events}
       />
     </Layout>

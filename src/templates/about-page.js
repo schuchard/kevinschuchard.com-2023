@@ -35,7 +35,7 @@ const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout metaDesc="Kevin Schuchard About page">
+    <Layout metaDesc="Kevin Schuchard Events">
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
