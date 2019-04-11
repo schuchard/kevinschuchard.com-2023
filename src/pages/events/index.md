@@ -65,12 +65,15 @@ events:
       city: Denver
       state: Colorado
       country: USA
+    otherLinks:
+      - name: Meetup
+        url: https://www.meetup.com/RockyMountainAngular/events/251276711/
 
   - id: f36ef462-dc02-4b54-a325-346d5b3aad87
     title: 'RMA: Angular Service Worker'
     description: >
       Presentation at the Rocky Mountain Angular meetup on Angular's Service Worker
-    date: 2018-06-28
+    date: 2018-06-27
     image: ''
     alt: ''
     slides: https://docs.google.com/presentation/d/e/2PACX-1vRtCwhvkpNXyF7qWOo7ChazqyN04iPKYSnhRz5Wz3LQ3igukEjuJppdFPofB1H3wGE-fxwzyz-lIsPz/pub?start=false&loop=false&delayms=5000
@@ -174,6 +177,9 @@ events:
     slides: ''
     video: ''
     repo: ''
+    otherLinks:
+      - name: Meetup
+        url: https://www.meetup.com/angularkc/events/259246816/
 
   - id: e0508ebd-82b8-4440-9163-81e36d7c9ee5
     title: 'RMA: Schematics: An Untapped Frontier'
@@ -185,6 +191,9 @@ events:
     slides: ''
     video: ''
     repo: ''
+    otherLinks:
+      - name: Meetup
+        url: https://www.meetup.com/RockyMountainAngular/events/259673280/
 
   - id: d204b962-71ff-4e64-88a4-dcc1996f9fa2
     title: 'Angular Boulder: Schematics: An Untapped Frontier'
@@ -196,4 +205,7 @@ events:
     slides: ''
     video: ''
     repo: ''
+    otherLinks:
+      - name: Meetup
+        url: https://www.meetup.com/angular-boulder/events/259793157/
 ---
