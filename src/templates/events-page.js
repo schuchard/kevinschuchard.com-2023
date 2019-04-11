@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import { Helmet } from 'react-helmet';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
+import EventLink from '../components/EventLink';
 
 export const EventsPageTemplate = ({ title, content, contentComponent, events, helmet }) => {
   const PageContent = contentComponent || Content;
@@ -18,47 +19,24 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
             <div className="section">
               <h1 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h1>
               <ul>
-                {events.map((item) => (
-                  <li key={item.id} className="event">
-                    <h2>{item.title}</h2>
-                    <small>{item.date}</small>
-                    <p>{item.description}</p>
+                {events.map((event) => (
+                  <li key={event.id} className="event">
+                    <h2>{event.title}</h2>
+                    <small>{event.date}</small>
+                    <p>{event.description}</p>
                     <div className="event-links">
-                      {item.slides ? (
-                        <OutboundLink href={item.slides} target="_blank" rel="noopener noreferrer">
-                          Slides
-                        </OutboundLink>
-                      ) : (
-                        ''
-                      )}
-                      {item.video ? (
-                        <OutboundLink href={item.video} target="_blank" rel="noopener noreferrer">
-                          Video
-                        </OutboundLink>
-                      ) : (
-                        ''
-                      )}
-                      {item.repo ? (
-                        <OutboundLink href={item.repo} target="_blank" rel="noopener noreferrer">
-                          Repo
-                        </OutboundLink>
-                      ) : (
-                        ''
-                      )}
+                      <EventLink url={event.slides} name="Slides" />
+                      <EventLink url={event.video} name="Video" />
+                      <EventLink url={event.repo} name="Repo" />
                     </div>
-                    {item.otherLinks ? (
+                    {event.otherLinks && event.otherLinks.length > 0 && (
                       <ul>
-                        {item.otherLinks.map((l) => (
+                        {event.otherLinks.map((l) => (
                           <li key={l}>
-                            -{' '}
-                            <OutboundLink href={l} target="_blank" rel="noopener noreferrer">
-                              {l}
-                            </OutboundLink>
+                            - <EventLink url={l} />
                           </li>
                         ))}
                       </ul>
-                    ) : (
-                      ''
                     )}
                   </li>
                 ))}
