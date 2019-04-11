@@ -36,7 +36,7 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
                       <ul>
                         {event.otherLinks.map((l) => (
                           <li key={l}>
-                            - <EventLink url={l} />
+                            <EventLink url={l} />
                           </li>
                         ))}
                       </ul>
