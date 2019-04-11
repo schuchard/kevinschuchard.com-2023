@@ -1,7 +1,7 @@
 ---
 templateKey: 'events-page'
 path: /events
-title: Public Events
+title: Speaking Events
 image: ''
 description: >-
   Presentations, meetups, and podcasts.

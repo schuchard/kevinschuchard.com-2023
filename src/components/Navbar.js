@@ -19,7 +19,7 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar is-transparent">
+      <nav className="navbar is-transparent container">
         <div className="navbar-brand">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item">
