@@ -18,14 +18,13 @@ export default class IndexPage extends React.Component {
             {posts
               .map(({ node: post }) => (
                 <div
-                  className="home-post"
+                  className="home-post k-card"
                   key={post.id}
                 >
                   <h1>
                     <Link className="has-text-primary index-list-title" to={post.fields.slug}>
                       {post.frontmatter.title}
                     </Link>
-                    <span> &bull; </span>
                     <small>{post.frontmatter.date}</small>
                   </h1>
                   <p>

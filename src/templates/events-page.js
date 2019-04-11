@@ -23,7 +23,7 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
               <h1 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h1>
               <ul>
                 {events.map((event) => (
-                  <li key={event.id} className="event">
+                  <li key={event.id} className="event k-card">
                     <h2>
                       {event.title}{' // '}
                       <small>
