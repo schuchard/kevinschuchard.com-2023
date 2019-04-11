@@ -24,8 +24,13 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
               <ul>
                 {events.map((event) => (
                   <li key={event.id} className="event">
-                    <h2>{event.title}</h2>
-                    <small>{event.date}</small>
+                    <h2>
+                      {event.title}{' // '}
+                      <small>
+                        <i>{event.date}</i>
+                      </small>
+                    </h2>
+
                     <p>{trim(event.description)}</p>
                     <div className="event-links">
                       <EventLink url={event.slides} name="Slides" />
