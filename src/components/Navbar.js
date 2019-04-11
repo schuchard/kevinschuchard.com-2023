@@ -19,7 +19,7 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar is-transparent">
+      <nav className="navbar is-transparent container">
         <div className="navbar-brand">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item">
@@ -37,6 +37,9 @@ export default class NavBar extends React.Component {
           <div className="navbar-start">
             <Link className="navbar-item" to="/about">
               About
+            </Link>
+            <Link className="navbar-item" to="/events">
+              Events
             </Link>
             {/* <Link className="navbar-item" to="/contact">
               Contact
