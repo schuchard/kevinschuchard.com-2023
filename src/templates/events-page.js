@@ -24,8 +24,8 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
               <ul>
                 {events.map((event) => (
                   <li key={event.id} className="event k-card">
-                    <h2>
-                      {event.title}{' // '}
+                    <h2 className="k-space-between">
+                      {event.title}
                       <small>
                         <i>{event.date}</i>
                       </small>

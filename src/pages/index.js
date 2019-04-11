@@ -21,7 +21,7 @@ export default class IndexPage extends React.Component {
                   className="home-post k-card"
                   key={post.id}
                 >
-                  <h1>
+                  <h1 className="k-space-between">
                     <Link className="has-text-primary index-list-title" to={post.fields.slug}>
                       {post.frontmatter.title}
                     </Link>
