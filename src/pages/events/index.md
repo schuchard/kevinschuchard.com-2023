@@ -24,7 +24,8 @@ events:
       state: Colorado
       country: USA
     otherLinks:
-      - https://www.meetup.com/RockyMountainAngular/events/239567196/
+      - name: Meetup
+        url: https://www.meetup.com/RockyMountainAngular/events/239567196/
 
   - id: 879acb16-0dfd-41ac-b779-9ea0c3eae548
     title: 'RMA: Service Worker'
@@ -44,7 +45,8 @@ events:
       state: Colorado
       country: USA
     otherLinks:
-      - https://www.meetup.com/RockyMountainAngular/events/243785541/
+      - name: Meetup
+        url: https://www.meetup.com/RockyMountainAngular/events/243785541/
 
   - id: 7c64e8e5-126d-4444-b860-7a7ca19afe66
     title: 'RMA: Angular Panel'
@@ -82,7 +84,8 @@ events:
       state: Colorado
       country: USA
     otherLinks:
-      - https://www.meetup.com/RockyMountainAngular/events/251487685/
+      - name: Meetup
+        url: https://www.meetup.com/RockyMountainAngular/events/251487685/
 
   - id: 6e81d1b6-a0f3-4d1a-ad33-7538c5abce15
     title: 'RMA: Testing: The Good Parts'
@@ -104,7 +107,8 @@ events:
       state: Colorado
       country: USA
     otherLinks:
-      - https://www.meetup.com/RockyMountainAngular/events/255033294/
+      - name: Meetup
+        url: https://www.meetup.com/RockyMountainAngular/events/255033294/
 
   - id: 6e9d38a6-1633-4751-bd7c-36631d0b8fc1
     title: 'Adventures in Angular: podcast guest - Schematics'
@@ -130,7 +134,8 @@ events:
     repo: ''
     embedLink: https://www.youtube.com/watch?v=phDaa6_eZsQ
     otherLinks:
-      - https://www.meetup.com/ngHouston/events/257718669/
+      - name: Meetup
+        url: https://www.meetup.com/ngHouston/events/257718669/
 
   - id: a572c860-121c-48fb-b4a6-8940e2ed6b01
     title: 'ngHouston: podcast panelist - HTTP2'
@@ -144,7 +149,8 @@ events:
     repo: ''
     embedLink: https://www.youtube.com/watch?v=wmDwue-m1rY
     otherLinks:
-      - https://www.meetup.com/ngHouston/events/258703766/
+      - name: Meetup
+        url: https://www.meetup.com/ngHouston/events/258703766/
 
   - id: 00746b9e-cb5c-4e9f-8c16-5baf8d12452d
     title: 'Angularlicious: Podcast guest - Schematics'
@@ -179,7 +185,7 @@ events:
     slides: ''
     video: ''
     repo: ''
-    
+
   - id: d204b962-71ff-4e64-88a4-dcc1996f9fa2
     title: 'Angular Boulder: Schematics: An Untapped Frontier'
     description: >

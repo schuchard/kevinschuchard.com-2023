@@ -62,19 +62,14 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
 
                     <p>{trim(event.description)}</p>
                     <div className="event-links">
-                      <EventLink url={event.slides} name="Slides" />
                       <EventLink url={event.video} name="Video" />
+                      <EventLink url={event.slides} name="Slides" />
                       <EventLink url={event.repo} name="Repo" />
-                    </div>
-                    {event.otherLinks && event.otherLinks.length > 0 && (
-                      <ul>
-                        {event.otherLinks.map((l) => (
-                          <li key={l}>
-                            <EventLink url={l} />
-                          </li>
+                      {event.otherLinks &&
+                        event.otherLinks.map((link) => (
+                          <EventLink key={link.url} url={link.url} name={link.name} />
                         ))}
-                      </ul>
-                    )}
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -142,7 +137,10 @@ export const eventsPageQuery = graphql`
             state
             country
           }
-          otherLinks
+          otherLinks {
+            name
+            url
+          }
         }
       }
     }
