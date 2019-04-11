@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import { Helmet } from 'react-helmet';
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import EventLink from '../components/EventLink';
 
 export const EventsPageTemplate = ({ title, content, contentComponent, events, helmet }) => {
