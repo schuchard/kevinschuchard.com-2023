@@ -1,9 +1,9 @@
-import React from 'react'
-import Helmet from 'react-helmet'
+import React from 'react';
+import Helmet from 'react-helmet';
 
-import Navbar from '../components/Navbar'
-import 'prismjs/themes/prism-tomorrow.css'
-import './all.sass'
+import Navbar from '../components/Navbar';
+import 'prismjs/themes/prism-tomorrow.css';
+import './all.sass';
 
 const TemplateWrapper = ({ children, metaDesc }) => (
   <div>
@@ -12,8 +12,10 @@ const TemplateWrapper = ({ children, metaDesc }) => (
       <meta name="Description" content={metaDesc} />
     </Helmet>
     <Navbar />
-    <div>{children}</div>
+    <section className="section">
+      <div className="container">{children}</div>
+    </section>
   </div>
 );
 
-export default TemplateWrapper
+export default TemplateWrapper;

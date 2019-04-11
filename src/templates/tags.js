@@ -22,9 +22,8 @@ class TagRoute extends React.Component {
 
     return (
       <Layout metaDesc={`${tag} | ${title}`}>
-        <section className="section">
           <Helmet title={`${tag} | ${title}`} />
-          <div className="container content">
+          <div className="content">
             <div className="columns">
               <div
                 className="column is-10 is-offset-1"
@@ -38,7 +37,6 @@ class TagRoute extends React.Component {
               </div>
             </div>
           </div>
-        </section>
       </Layout>
     )
   }
