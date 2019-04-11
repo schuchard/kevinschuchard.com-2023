@@ -13,6 +13,7 @@ export default function EventLink(props) {
   if (displayName.length > trimLength) {
     displayName = `${displayName.slice(0, trimLength)}...`;
   }
+    
   return (
     <OutboundLink className="event-link" href={props.url} target="_blank" rel="noopener noreferrer">
       {displayName}

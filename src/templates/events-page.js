@@ -9,6 +9,10 @@ import EventLink from '../components/EventLink';
 export const EventsPageTemplate = ({ title, content, contentComponent, events, helmet }) => {
   const PageContent = contentComponent || Content;
 
+  const trim = (text) => {
+    return text && text.length > 300 ? `${text.slice(0, 301)}...` : text;
+  };
+
   return (
     <section className="section section--gradient">
       {helmet || ''}
@@ -22,7 +26,7 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
                   <li key={event.id} className="event">
                     <h2>{event.title}</h2>
                     <small>{event.date}</small>
-                    <p>{event.description}</p>
+                    <p>{trim(event.description)}</p>
                     <div className="event-links">
                       <EventLink url={event.slides} name="Slides" />
                       <EventLink url={event.video} name="Video" />
