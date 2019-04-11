@@ -147,7 +147,7 @@ events:
       - https://www.meetup.com/ngHouston/events/258703766/
 
   - id: 00746b9e-cb5c-4e9f-8c16-5baf8d12452d
-    title: 'Angularlicious: podcast guest - Schematics'
+    title: 'Angularlicious: Podcast guest - Schematics'
     description: >
       Podcast guest discussing schematics for Angular
     date: 2019-02-20
@@ -159,10 +159,32 @@ events:
     embedLink: <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/585720234&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
   - id: 26428cbd-ab07-4230-ab4e-bbe8cbf0ae94
-    title: 'Angular Kansas City: Schematic presentation'
+    title: 'Angular Kansas City: Schematics: An Untapped Frontier'
     description: >
       Preview presentation for ngConf 2019
     date: 2019-03-12
+    image: ''
+    alt: ''
+    slides: ''
+    video: ''
+    repo: ''
+
+  - id: e0508ebd-82b8-4440-9163-81e36d7c9ee5
+    title: 'RMA: Schematics: An Untapped Frontier'
+    description: >
+      Preview presentation for ngConf 2019
+    date: 2019-03-27
+    image: ''
+    alt: ''
+    slides: ''
+    video: ''
+    repo: ''
+    
+  - id: d204b962-71ff-4e64-88a4-dcc1996f9fa2
+    title: 'Angular Boulder: Schematics: An Untapped Frontier'
+    description: >
+      Preview presentation for ngConf 2019
+    date: 2019-04-19
     image: ''
     alt: ''
     slides: ''
