@@ -13,40 +13,74 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
     return text && text.length > 300 ? `${text.slice(0, 301)}...` : text;
   };
 
+  const sortDesc = (a, b) => {
+    if (a > b) return -1;
+    if (a < b) return 1;
+    return 0;
+  };
+
+  const eventsByDate = events.reduce((acc, val) => {
+    const year = new Date(val.date).getFullYear();
+
+    if (!acc[year]) {
+      acc[year] = [val];
+    } else {
+      acc[year].push(val);
+      acc[year].sort((a, b) => sortDesc(new Date(a.date), new Date(b.date)));
+    }
+
+    return acc;
+  }, {});
+
+  let orderedEvents = Object.entries(eventsByDate)
+    .map(([year, events]) => {
+      return {
+        year,
+        events,
+      };
+    })
+    .sort((a, b) => sortDesc(new Date(a.year), new Date(b.year)));
+
   return (
     <div className="columns">
       {helmet}
       <div className="column is-8 is-offset-2">
         <div className="section">
           <h1 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h1>
-          <ul>
-            {events.map((event) => (
-              <li key={event.id} className="event k-card">
-                <h2 className="k-space-between">
-                  {event.title}
-                  <small>
-                    <i>{event.date}</i>
-                  </small>
-                </h2>
+          {orderedEvents.map((group) => (
+            <div key={group.year}>
+              <h2 className="title is-5">{group.year}</h2>
+              <ul>
+                {group.events.map((event) => (
+                  <li key={event.id} className="event k-card">
+                    <h2 className="k-space-between">
+                      {event.title}
+                      <small>
+                        <i>{event.date}</i>
+                      </small>
+                    </h2>
 
-                <p>{trim(event.description)}</p>
-                <div className="event-links">
-                  <EventLink url={event.slides} name="Slides" />
-                  <EventLink url={event.video} name="Video" />
-                  <EventLink url={event.repo} name="Repo" />
-                </div>
-                {event.otherLinks && event.otherLinks.length > 0 && (
-                  <ul>
-                    {event.otherLinks.map((l) => (
-                      <li key={l}>
-                        <EventLink url={l} />
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
+                    <p>{trim(event.description)}</p>
+                    <div className="event-links">
+                      <EventLink url={event.slides} name="Slides" />
+                      <EventLink url={event.video} name="Video" />
+                      <EventLink url={event.repo} name="Repo" />
+                    </div>
+                    {event.otherLinks && event.otherLinks.length > 0 && (
+                      <ul>
+                        {event.otherLinks.map((l) => (
+                          <li key={l}>
+                            <EventLink url={l} />
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
           <PageContent className="content" content={content} />
         </div>
       </div>
