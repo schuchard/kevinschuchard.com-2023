@@ -55,7 +55,7 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
                 {group.events.map((event) => (
                   <li key={event.id} className="event k-card">
                     <CardHeader date={event.date}>
-                      <h3 className="title is-5">{event.title}</h3>
+                      <h3 className="title is-5 w400">{event.title}</h3>
                     </CardHeader>
                     <p>{trim(event.description)}</p>
                     <div className="event-links">

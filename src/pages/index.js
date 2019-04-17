@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
+import CardHeader from '../components/CardHeader';
 
 export default class IndexPage extends React.Component {
   render() {
@@ -18,12 +19,13 @@ export default class IndexPage extends React.Component {
               </div>
               {posts.map(({ node: post }) => (
                 <div className="home-post k-card" key={post.id}>
-                  <h1 className="k-space-between">
-                    <Link className="has-text-primary index-list-title" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                    <small>{post.frontmatter.date}</small>
-                  </h1>
+                  <CardHeader date={post.frontmatter.date}>
+                    <h1 className="title is-4 w400">
+                      <Link className="has-text-primary index-list-title" to={post.fields.slug}>
+                        {post.frontmatter.title}
+                      </Link>
+                    </h1>
+                  </CardHeader>
                   <p>{post.excerpt}</p>
                 </div>
               ))}
