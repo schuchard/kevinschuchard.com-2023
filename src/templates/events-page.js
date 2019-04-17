@@ -49,7 +49,7 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
         <h1 className="title is-2">{title}</h1>
         {orderedEvents.map((group) => (
           <div key={group.year}>
-            <h2 className="title is-4">{group.year}</h2>
+            <h2 className="title is-4 event-year">{group.year}</h2>
             <ul>
               {group.events.map((event) => (
                 <li key={event.id} className="event k-card">
