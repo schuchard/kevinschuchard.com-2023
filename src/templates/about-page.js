@@ -12,10 +12,8 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
     <div className="columns">
       <Helmet title={`Kevin Schuchard | About`} />
       <div className="column is-8 is-offset-2">
-        <div className="section">
-          <h2 className="title is-2 has-text-weight-bold is-bold-light">{title}</h2>
-          <PageContent className="content" content={content} />
-        </div>
+        <h2 className="title is-2 has-text-weight-bold is-bold-light">{title}</h2>
+        <PageContent className="content" content={content} />
       </div>
     </div>
   );

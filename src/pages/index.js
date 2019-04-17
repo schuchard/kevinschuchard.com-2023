@@ -13,23 +13,21 @@ export default class IndexPage extends React.Component {
       <Layout metaDesc="Kevin Schuchard blog posts">
         <div className="columns">
           <div className="column is-8 is-offset-2">
-            <div className="section">
-              <div className="content">
-                <h1 className="title is-2">Latest Posts</h1>
-              </div>
-              {posts.map(({ node: post }) => (
-                <div className="home-post k-card" key={post.id}>
-                  <CardHeader date={post.frontmatter.date}>
-                    <h1 className="title is-4 w400">
-                      <Link className="has-text-primary index-list-title" to={post.fields.slug}>
-                        {post.frontmatter.title}
-                      </Link>
-                    </h1>
-                  </CardHeader>
-                  <p>{post.excerpt}</p>
-                </div>
-              ))}
+            <div className="content">
+              <h1 className="title is-2">Latest Posts</h1>
             </div>
+            {posts.map(({ node: post }) => (
+              <div className="home-post k-card" key={post.id}>
+                <CardHeader date={post.frontmatter.date}>
+                  <h1 className="title is-4 w400">
+                    <Link className="has-text-primary index-list-title" to={post.fields.slug}>
+                      {post.frontmatter.title}
+                    </Link>
+                  </h1>
+                </CardHeader>
+                <p>{post.excerpt}</p>
+              </div>
+            ))}
           </div>
         </div>
       </Layout>

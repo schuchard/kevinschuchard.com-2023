@@ -46,35 +46,33 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
     <div className="columns">
       {helmet}
       <div className="column is-8 is-offset-2">
-        <div className="section">
-          <h1 className="title is-2">{title}</h1>
-          {orderedEvents.map((group) => (
-            <div key={group.year}>
-              <h2 className="title is-4">{group.year}</h2>
-              <ul>
-                {group.events.map((event) => (
-                  <li key={event.id} className="event k-card">
-                    <CardHeader date={event.date}>
-                      <h3 className="title is-5 w400">{event.title}</h3>
-                    </CardHeader>
-                    <p>{trim(event.description)}</p>
-                    <div className="event-links">
-                      <EventLink url={event.video} name="Video" />
-                      <EventLink url={event.slides} name="Slides" />
-                      <EventLink url={event.repo} name="Repo" />
-                      {event.otherLinks &&
-                        event.otherLinks.map((link) => (
-                          <EventLink key={link.url} url={link.url} name={link.name} />
-                        ))}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <h1 className="title is-2">{title}</h1>
+        {orderedEvents.map((group) => (
+          <div key={group.year}>
+            <h2 className="title is-4">{group.year}</h2>
+            <ul>
+              {group.events.map((event) => (
+                <li key={event.id} className="event k-card">
+                  <CardHeader date={event.date}>
+                    <h3 className="title is-5 w400">{event.title}</h3>
+                  </CardHeader>
+                  <p>{trim(event.description)}</p>
+                  <div className="event-links">
+                    <EventLink url={event.video} name="Video" />
+                    <EventLink url={event.slides} name="Slides" />
+                    <EventLink url={event.repo} name="Repo" />
+                    {event.otherLinks &&
+                      event.otherLinks.map((link) => (
+                        <EventLink key={link.url} url={link.url} name={link.name} />
+                      ))}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
 
-          <PageContent className="content" content={content} />
-        </div>
+        <PageContent className="content" content={content} />
       </div>
     </div>
   );
