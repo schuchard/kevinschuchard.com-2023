@@ -59,10 +59,23 @@ $link: #174ba0
   border: 17px #ffffff00 solid
   padding: 0 3px
 
-.k-space-between
+.k-card-header
   display: flex
   justify-content: space-between
-  align-items: center
+  flex-direction: column
+  align-items: flex-start
+  margin-bottom: 10px
+
+  div
+    margin-bottom: 4px
+  small
+    min-width: 132px
+
+
+  @media screen and (min-width: $desktop)
+    flex-direction: row
+    small
+       text-align: right
 
 .event-links :not(:last-child)
   padding-right: 12px

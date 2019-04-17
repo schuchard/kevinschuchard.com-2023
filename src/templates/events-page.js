@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import { Helmet } from 'react-helmet';
 import EventLink from '../components/EventLink';
+import CardHeader from '../components/CardHeader';
 
 export const EventsPageTemplate = ({ title, content, contentComponent, events, helmet }) => {
   const PageContent = contentComponent || Content;
@@ -46,20 +47,16 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
       {helmet}
       <div className="column is-8 is-offset-2">
         <div className="section">
-          <h1 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h1>
+          <h1 className="title is-2">{title}</h1>
           {orderedEvents.map((group) => (
             <div key={group.year}>
-              <h2 className="title is-5">{group.year}</h2>
+              <h2 className="title is-4">{group.year}</h2>
               <ul>
                 {group.events.map((event) => (
                   <li key={event.id} className="event k-card">
-                    <h2 className="k-space-between">
-                      {event.title}
-                      <small>
-                        <i>{event.date}</i>
-                      </small>
-                    </h2>
-
+                    <CardHeader date={event.date}>
+                      <h3 className="title is-5">{event.title}</h3>
+                    </CardHeader>
                     <p>{trim(event.description)}</p>
                     <div className="event-links">
                       <EventLink url={event.video} name="Video" />

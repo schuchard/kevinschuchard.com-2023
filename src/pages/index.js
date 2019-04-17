@@ -14,7 +14,7 @@ export default class IndexPage extends React.Component {
           <div className="column is-8 is-offset-2">
             <div className="section">
               <div className="content">
-                <h1 className="has-text-weight-bold is-size-2">Latest Posts</h1>
+                <h1 className="title is-2">Latest Posts</h1>
               </div>
               {posts.map(({ node: post }) => (
                 <div className="home-post k-card" key={post.id}>
