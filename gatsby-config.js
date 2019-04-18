@@ -166,7 +166,7 @@ module.exports = {
       resolve: `gatsby-plugin-offline`,
       options: {
         // Regex based on http://stackoverflow.com/a/18017805
-        navigateFallbackWhitelist: [/^[^?]*([^.?]{5}|\.html)(\?.*)?$/],
+        // navigateFallbackWhitelist: [/^[^?]*([^.?]{5}|\.html)(\?.*)?$/],
         navigateFallbackBlacklist: [/\?(.+&)?no-cache=1$/, /admin/],
         cacheId: `kevinschuchard-offline`,
         dontCacheBustUrlsMatching: /(.*js$|\/static\/)/,
@@ -174,6 +174,11 @@ module.exports = {
           {
             // Add runtime caching of various page resources.
             urlPattern: /\.(?:png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+            handler: `staleWhileRevalidate`,
+          },
+          {
+            // Google Fonts CSS (doesn't end in .css so we need to specify it)
+            urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
             handler: `staleWhileRevalidate`,
           },
         ],
