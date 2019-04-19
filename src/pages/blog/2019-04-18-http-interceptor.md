@@ -115,8 +115,10 @@ providers: [
 ```
 
 ## Summary
-As we’ve seen over these examples, interceptors provide a straightforward mechanism to interact with HTTP requests and responses. This makes it easy to add layers of control and provide more functionality throughout your application.
+
+As we’ve seen in these examples, interceptors provide a straightforward mechanism to interact with HTTP requests and responses. This makes it easy to add layers of control and provide more functionality throughout your application.
 
 ## Helpful links
+
 Angular docs - https://angular.io/guide/http#intercepting-requests-and-responses
 
