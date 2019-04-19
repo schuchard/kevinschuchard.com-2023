@@ -124,6 +124,9 @@ events:
     video: ''
     repo: ''
     embedLink: https://devchat.tv/adv-in-angular/aia-221-angular-schematics-from-the-ground-up-with-brian-love-kevin-schuchard/
+    otherLinks:
+      - name: Podcast
+        url: https://devchat.tv/adv-in-angular/aia-221-angular-schematics-from-the-ground-up-with-brian-love-kevin-schuchard/
 
   - id: 728776cc-29b9-4ff5-9df5-22d42dbb6af8
     title: 'ngHouston - podcast guest on Schematics'
@@ -166,6 +169,9 @@ events:
     video: ''
     repo: ''
     embedLink: <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/585720234&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    otherLinks:
+    - name: Podcast
+      url: https://soundcloud.com/angularlicious/angularlicious-schematics?in=angularlicious/sets/angularlicio-us-podcast
 
   - id: 26428cbd-ab07-4230-ab4e-bbe8cbf0ae94
     title: 'Angular Kansas City - Schematics: An Untapped Frontier'
