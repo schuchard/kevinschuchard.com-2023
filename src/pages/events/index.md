@@ -238,7 +238,7 @@ events:
         url: https://angulardenver.com/workshops
       - name: Workshop
         url: https://angulardenver.com/angular-fundamentals
-  - id: 13e426f8-ea05-4cf9-8252-83ae5312b045
+  - id: 19e8f4f6-1069-41da-9107-d984d164be95
     title: 'Angular Denver - Schematics: an untapped frontier'
     description: >
       Schematics can accomplish nearly any task and published by anyone. Whether you want to generate hundreds of dynamic files or update source code, Kevin and Brian will demonstrate how accessible custom schematics are for you or your organization. If you find yourself repeating the same logic, enforcing similar patterns, or performing setup logic, again and again, you’ll take away the tools and understanding necessary to start your schematic learning journey.
