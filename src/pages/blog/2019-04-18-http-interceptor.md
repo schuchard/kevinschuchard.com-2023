@@ -10,6 +10,8 @@ tags:
 
 HTTP Interceptors provide a flexible mechanism to control your application when dealing with network related resources. They’re similar to middleware in other frameworks and allow network logic to be abstracted and reused. This article will focus on three types of interceptors you can use to enhance your application. Caching resources, converting response types, and controlling access based on authorization.
 
+[Demo app](https://ng-interceptors.netlify.com)
+
 ## Why use HTTP Interceptors
 
 Interceptors can provide a convenient location to apply functionality across all or some network requests and responses. As your application grows re-implementing the same logic becomes tedious, error prone, and potentially results in inconsistent functionality. For example, setting up an Authorization Header across multiple network requests can quickly lead to duplicate code at the service or component level. By utilizing an interceptor, it can be configured once and applied on all current and future HTTP requests. By abstracting global network logic to a single responsibility class, we make it easier to test and build reliable applications quickly.
@@ -217,3 +219,4 @@ As we’ve seen in these examples, interceptors provide a straightforward mechan
 ## Helpful links
 
 Angular docs - https://angular.io/guide/http#intercepting-requests-and-responses
+Demo app - https://ng-interceptors.netlify.com
