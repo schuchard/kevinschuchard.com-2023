@@ -10,7 +10,10 @@ tags:
 
 HTTP Interceptors provide a flexible mechanism to control your application when dealing with network related resources. They’re similar to middleware in other frameworks and allow network logic to be abstracted and reused.
 
-## 🚀 [Demo app](https://ng-interceptors.netlify.com)
+## Resources
+
+- [🚀 Demo app](https://ng-interceptors.netlify.com)
+- [🛠 Github](https://github.com/schuchard/ng-interceptors)
 
 ## Why use HTTP Interceptors
 
@@ -236,3 +239,5 @@ As we’ve seen in these examples, interceptors provide a straightforward mechan
 Angular docs - https://angular.io/guide/http#intercepting-requests-and-responses
 
 Demo app - https://ng-interceptors.netlify.com
+
+Github - https://github.com/schuchard/ng-interceptors)
