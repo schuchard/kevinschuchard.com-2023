@@ -52,15 +52,14 @@ Be aware that there may be other events beside the response so it's a good idea 
 
 ```ts
 return next.handle(req).pipe(
-  tap((event: HttpEvent<any>) => {
-    // There may be other events besides the response.
-    if (event instanceof HttpResponse) {
-      cache.set(req.urlWithParams, {
-        key: req.urlWithParams,
-        body: event.body,
-        dateAdded: Date.now(),
-      });
-    }
+  // There may be other events besides the response.
+  filter(event => event instanceof HttpResponse),
+  tap((event: HttpResponse<any>) => {
+    cache.set(req.urlWithParams, {
+      key: req.urlWithParams,
+      body: event.body,
+      dateAdded: Date.now(),
+    });
   })
 );
 ```
