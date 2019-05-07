@@ -236,4 +236,5 @@ As we’ve seen in these examples, interceptors provide a straightforward mechan
 ## Helpful links
 
 Angular docs - https://angular.io/guide/http#intercepting-requests-and-responses
+
 Demo app - https://ng-interceptors.netlify.com
