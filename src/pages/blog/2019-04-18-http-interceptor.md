@@ -10,7 +10,7 @@ tags:
 
 HTTP Interceptors provide a flexible mechanism to control your application when dealing with network related resources. They’re similar to middleware in other frameworks and allow network logic to be abstracted and reused.
 
-[Demo app](https://ng-interceptors.netlify.com)
+## 🚀 [Demo app](https://ng-interceptors.netlify.com)
 
 ## Why use HTTP Interceptors
 
@@ -105,15 +105,14 @@ function sendRequest(
   cache: CacheService
 ): Observable<HttpEvent<any>> {
   return next.handle(req).pipe(
-    tap(event => {
-      // There may be other events besides the response.
-      if (event instanceof HttpResponse) {
-        cache.set(req.urlWithParams, {
-          key: req.urlWithParams,
-          body: event.body,
-          dateAdded: Date.now(),
-        });
-      }
+    // There may be other events besides the response.
+    filter(event => event instanceof HttpResponse),
+    tap((event: HttpResponse<any>) => {
+      cache.set(req.urlWithParams, {
+        key: req.urlWithParams,
+        body: event.body,
+        dateAdded: Date.now(),
+      });
     })
   );
 }
