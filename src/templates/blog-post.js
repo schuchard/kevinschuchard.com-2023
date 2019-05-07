@@ -10,6 +10,7 @@ export const BlogPostTemplate = ({
   content,
   contentComponent,
   description,
+  embed,
   tags,
   title,
   helmet,
@@ -23,6 +24,7 @@ export const BlogPostTemplate = ({
         <div className="column is-8 is-offset-2">
           <h1 className="title is-1">{title}</h1>
           <p>{description}</p>
+          <iframe title="stackblitz" src={embed} width="600" height="400"></iframe>
           <PostContent content={content} />
           {tags && tags.length ? (
             <div style={{ marginTop: `4rem` }}>
@@ -46,6 +48,7 @@ BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
+  embed: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.any,
 };
@@ -60,6 +63,7 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        embed={post.frontmatter.embed}
         helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
@@ -86,6 +90,7 @@ export const pageQuery = graphql`
         title
         description
         tags
+        embed
       }
     }
   }

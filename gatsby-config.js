@@ -103,6 +103,7 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-static-images',
+          `gatsby-remark-responsive-iframe`,
           {
             resolve: `gatsby-remark-images`,
             options: {

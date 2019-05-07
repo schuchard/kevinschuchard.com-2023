@@ -6,6 +6,7 @@ description:
 tags:
   - angular
   - http
+embed: https://stackblitz.com/github/qgniwnxy?embed=1&file=src/app/app.component.ts
 ---
 
 HTTP Interceptors provide a flexible mechanism to control your application when dealing with network related resources. They’re similar to middleware in other frameworks and allow network logic to be abstracted and reused.
