@@ -71,7 +71,7 @@ return next.handle(req).pipe(
 
 ### Caching
 
-Caching, specifically [cache invalidation](https://martinfowler.com/bliki/TwoHardThings.html), can be quite difficult so this article will skip the specifics on that. However initiating the logic that determines when to return a cached response is handled nicely by an interceptor. For a given endpoint you can cache the results in a number of ways and return the cache based on time, existence, or  another factor.
+Caching, specifically [cache invalidation](https://martinfowler.com/bliki/TwoHardThings.html), can be quite difficult so this article will skip the specifics on that. Instead we'll look at a simple example that returns something from the cache or allows the request to go through. For a given endpoint you can cache the results in a number of ways and return the cache based on time, existence, or  another factor.
 
 The following example checks for the existence in the cache and returns it:
 
@@ -133,7 +133,7 @@ return cachedResponse
 
 ### XML to JSON
 
-Often developers don’t have complete control over how they get data. For example, if you have one API that returns XML but the rest of your app works with JSON it might make sense to convert the XML response to JSON for consistency. With an interceptor the XML conditional logic can be abstracted away from consumers and applied to all network requests.
+Often developers don’t have complete control over how they get data. For example, if you have one API that returns XML but the rest of your app works with JSON it might make sense to convert the XML response to JSON for consistency. With an interceptor the XML conditional logic can be abstracted from consumers and applied to all network requests.
 
 ```ts
 export class XmlInterceptor implements HttpInterceptor {
@@ -166,7 +166,7 @@ In order to handle the response, this logic is `pipe`'ed off of the `handle` met
 
 ### Redirect based on scopes
 
-When an application needs to restrict access to certain routes, an interceptor can provide that functionality in one place across many routes. Since interceptors are run for every request you can organize your route guard logic in one place. Assuming you’ve set up the what routes the are guarded and can access the users available scopes, the interceptor can determine whether to allow the request or redirect.
+When an application needs to restrict access to certain routes, an interceptor can provide that functionality in one place across many routes. Since interceptors are run for every request you can organize your route guard logic in one place. Assuming you’ve set up what routes are guarded and can access the users available scopes, the interceptor can determine whether to allow the request or redirect.
 
 ```ts
 export class ScopesInterceptor implements HttpInterceptor {
@@ -190,14 +190,14 @@ export class ScopesInterceptor implements HttpInterceptor {
 }
 ```
 
-In this example, if the route isn't protected we don't take any action. If it is, the request is allowed if the user is an admin otherwise we redirect and cancel the request.
+In this example, if the route isn't protected we don't take any action. If it is the request is allowed if the user is an admin otherwise we redirect and cancel the request.
 
 ## Immutability
 
 It may not be obvious but the `HttpRequest` and `HttpResponse` instances are immutable. From the [Angular docs](https://angular.io/guide/http#immutability)
 > interceptors are capable of mutating requests and responses, the HttpRequest and HttpResponse instance properties are readonly, rendering them largely immutable.
 
-This done because the app may retry a request several times and if the interceptor could modify the original request then each subsequent request would be different.
+This is done because the app may retry a request several times and if the interceptor could modify the original request then each subsequent request could be different.
 
 What this means for developers is that you must `clone` the request and modify that instance:
 
@@ -212,7 +212,7 @@ return next.handle(secureReq);
 
 ## Interceptor order
 
-Interceptors pass requests through in the order that they're [provided](https://angular.io/guide/http#provide-the-interceptor) in, `[A,B,C]`. The following "barrel" example gathers interceptors to later be provided in their declared order.
+Interceptors pass requests through in the order that they're [provided](https://angular.io/guide/http#provide-the-interceptor), `[A,B,C]`. The following "barrel" example gathers interceptors to later be provided in their declared order.
 
 > requests will flow in A->B->C and responses will flow out C->B->A.
 
