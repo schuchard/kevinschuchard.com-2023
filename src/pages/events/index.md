@@ -180,7 +180,7 @@ events:
     date: 2019-03-12
     image: ''
     alt: ''
-    slides: ''
+    slides: https://docs.google.com/presentation/d/156wl847PwJE5kUQ4PiiS8Qw74tI8Fpj2q3hQTrg8e4U/edit?usp=sharing
     video: ''
     repo: ''
     otherLinks:
@@ -194,7 +194,7 @@ events:
     date: 2019-03-27
     image: ''
     alt: ''
-    slides: ''
+    slides: https://docs.google.com/presentation/d/156wl847PwJE5kUQ4PiiS8Qw74tI8Fpj2q3hQTrg8e4U/edit?usp=sharing
     video: ''
     repo: ''
     otherLinks:
@@ -208,7 +208,7 @@ events:
     date: 2019-04-19
     image: ''
     alt: ''
-    slides: ''
+    slides: https://docs.google.com/presentation/d/156wl847PwJE5kUQ4PiiS8Qw74tI8Fpj2q3hQTrg8e4U/edit?usp=sharing
     video: ''
     repo: ''
     otherLinks:
@@ -221,9 +221,22 @@ events:
     date: 2019-05-02
     image: ''
     alt: ''
-    slides: ''
-    video: ''
+    slides: https://docs.google.com/presentation/d/156wl847PwJE5kUQ4PiiS8Qw74tI8Fpj2q3hQTrg8e4U/edit?usp=sharing
+    video: https://youtu.be/FeZ40kXS0OI
     repo: ''
+    otherLinks:
+      - name: NgConf
+        url: https://www.ng-conf.org/2019/speakers/kevin-schuchard/
+  - id: e5e41eb8-ae64-4d30-83fb-ac782118de8f
+    title: 'NgConf - Schematic Odyssey workshop'
+    description: >
+      1hr workshop. Join as we venture into the unknown space of Angular Schematics. You’ll learn why Schematics can be a valuable tool to you as an Angular developer and how to create a collection of schematics for your organization. We’ll go from the launch pad to orbit and into the deep space of Angular Schematics.
+    date: 2019-05-02
+    image: ''
+    alt: ''
+    slides: https://docs.google.com/presentation/d/1h8s5tQssvbzSt77hs7VQT9w5IGAjFXNEUVap6HITjJA/edit?usp=sharing
+    video: https://youtu.be/X06tuCohJPQ
+    repo: http://bit.ly/2PyMJOr
     otherLinks:
       - name: NgConf
         url: https://www.ng-conf.org/2019/speakers/kevin-schuchard/
