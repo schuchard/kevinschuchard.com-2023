@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: 3 ways to use Angular HTTP Interceptors
-date: 2019-04-18T00:00:00.000Z
+date: 2019-05-08T00:00:00.000Z
 description:
 tags:
   - angular
