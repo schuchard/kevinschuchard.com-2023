@@ -41,8 +41,6 @@ const templateSource = apply(url('./files'), [
   }),
   move('./'),
 ]);
-
-return chain([mergeWith(templateSource)])(tree, context);
 ```
 
 # Using values in files
