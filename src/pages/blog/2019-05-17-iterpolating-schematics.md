@@ -8,7 +8,17 @@ tags:
   - schematic
 ---
 
-The process of moving and interpolating template files in schematics is extremely powerful. You can provide variables and methods to use in the files and filenames when adding the files.
+The process of moving and interpolating template files in schematics is extremely powerful. You can provide variables and methods to use in the files and filenames during interpolation. When adding template files there's three common steps to take.
+
+Lets assume the following directory of template files:
+
+```text
+files
+  ├── __name@dasherize__.component.__style__
+  ├── __name@dasherize__.component.html
+  ├── __name@dasherize__.component.spec.ts
+  └── __name@dasherize__.component.ts
+```
 
 1. Use the `url` method to get a `Source` via a relative path to the files folder containing our template files.
 2. Then apply the first of two `Rule`'s with the `template` method. This provides the values and methods to be used or interpolated in the files and filenames.
