@@ -4,6 +4,8 @@ $color-dark: #282c34 // dark blue
 $color-pink: #c516b4
 $color-purple: #eba7e6
 $material-deep-purple-500: #673AB7
+// https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=F50057
+$material-pink-a-400: #f50057
 
 $color-char: #D8DEE9
 $color-comment: #B2B2B2
@@ -123,10 +125,12 @@ $color-operator: #fc929e
 // inline code
 \:not(pre) > code[class*="language-"]
   background: #f3f3f3
-  color: $material-deep-purple-500
+  color: $material-pink-a-400
   padding: 1px 4px
+  font-size: .9rem
 
 // code blocks
 pre[class*="language-"]
   background: $color-code-bg
   padding: 1rem 1.5rem
+  font-size: .9rem
