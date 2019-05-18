@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
+import Footer from '../components/Footer';
 
 export const BlogPostTemplate = ({
   content,
@@ -24,6 +25,9 @@ export const BlogPostTemplate = ({
           <h1 className="title is-1">{title}</h1>
           <p>{description}</p>
           <PostContent content={content} />
+          <div className="footer-container">
+            <Footer />
+          </div>
           {tags && tags.length ? (
             <div style={{ marginTop: `4rem` }}>
               <h4>Tags</h4>
