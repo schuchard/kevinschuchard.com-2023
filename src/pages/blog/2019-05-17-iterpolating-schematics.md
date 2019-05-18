@@ -12,7 +12,7 @@ The process of moving and interpolating template files in schematics is extremel
 
 # Adding files
 
-When adding template files there's generally three common steps to take. Lets assume the following directory of template files that our example schematic will use.
+When adding template files there are generally three common steps to take. Let's assume the following directory of template files that our example schematic will use.
 
 ```text
 files
@@ -24,7 +24,7 @@ files
 
 1. Use the `url` method to get a `Source`. This is a relative path to the ./files folder containing our template files above.
 2. Then apply the first of two `Rule`'s with the `template` method. This provides the values and methods to be used or interpolated in the files and filenames.
-3. Lastly apply the second `Rule` to `move` the `Source` to the root of the host application that the schematic is running against. This is everything in the ./files directory above. In this example we're hard coding the path in `move('./')` but this could also be dynamically set.
+3. Lastly, apply the second `Rule` to `move` the `Source` to the root of the host application that the schematic is running against. This is everything in the ./files directory above. In this example, we're hard-coding the path in `move('./')` but this could also be dynamically set.
 
 ```ts{3-7}
 function addFiles(options: Options): Rule {
@@ -58,7 +58,7 @@ const templateSource = apply(url('./files'), [
 
 # Using values in files
 
-Schematics use a similar interpolation concept to Angular in that special characters wrap a value or method and interpolate it. In Angular we accomplish this like so.
+Schematics use a similar interpolation concept to Angular in that special characters wrap a value or method and interpolate it. In Angular, we accomplish this like so.
 
 ```html
 <h1>{{ name }}</h1>
@@ -84,7 +84,7 @@ Methods can also be used if they've been provided as mentioned above with the `t
 
 # Using values in filenames
 
-Filenames operate similarly in how they interpolate both values, methods, and conditionals. The main difference is how you signal what part of the filename should be interpolated. In filenames you use a double underscore to wrap values and methods.
+Filenames operate similarly in how they interpolate both values, methods, and conditionals. The main difference is how you signal what part of the filename should be interpolated. In filenames, you use a double underscore to wrap values and methods.
 
 ```text
 __name__.component.ts
@@ -102,7 +102,7 @@ Here the `name` value will be used in the `dasherize` function and returned. If 
 
 # Conditional template logic
 
-Templates can use values provided in the `template` method to make logical decisions. This could look like deciding when to add or remove code inside the templates. Lets look at a snippet from the Angular component schematic [template file](https://github.com/angular/angular-cli/blob/master/packages/schematics/angular/component/files/__name%40dasherize%40if-flat__/__name%40dasherize__.component.ts.template). At first glance, this may look like a jumbled mess. However, if you look closely you'll see the familiar wrapping elements from before, `<%=` and `%>`.
+Templates can use values provided in the `template` method to make logical decisions. This could look like deciding when to add or remove code inside the templates. Let's look at a snippet from the Angular component schematic [template file](https://github.com/angular/angular-cli/blob/master/packages/schematics/angular/component/files/__name%40dasherize%40if-flat__/__name%40dasherize__.component.ts.template). At first glance, this may look like a jumbled mess. However, if you look closely you'll see the familiar wrapping elements from before, `<%=` and `%>`.
 
 ```ts
 @Component({
@@ -120,7 +120,7 @@ Templates can use values provided in the `template` method to make logical decis
 })
 ```
 
-While this template file as a whole is not executable in it's current form, you can think of the code between the `<%=` and `%>` elements as being so. So if we look at the style conditionals we can see that it's a basic `if` / `else` block.
+While this template file as a whole is not executable in its current form, you can think of the code between the `<%=` and `%>` elements as being so. So if we look at the style conditionals we can see that it's a basic `if` / `else` block.
 
 ```ts
 templateUrl: './<%= dasherize(name) %>.component.html',<% } if(inlineStyle) { %>
@@ -158,4 +158,4 @@ ng g c flatB --flat=true
 ## Resources
 
 - The Angular CLI component [schematic](https://github.com/angular/angular-cli/tree/master/packages/schematics/angular/component) uses all of the things discussed in this article.
-- Checkout my [Schematic Sandbox](https://github.com/schuchard/schematic-starter) for rapidly developing schematics.
+- Check out my [Schematic Sandbox](https://github.com/schuchard/schematic-starter) for rapidly developing schematics.
