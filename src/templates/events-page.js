@@ -9,6 +9,7 @@ import CardHeader from '../components/CardHeader';
 
 export const EventsPageTemplate = ({ title, content, contentComponent, events, helmet }) => {
   const PageContent = contentComponent || Content;
+  const today = new Date();
 
   const trim = (text) => {
     return text && text.length > 300 ? `${text.slice(0, 301)}...` : text;
@@ -22,6 +23,8 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
 
   const eventsByDate = events.reduce((acc, val) => {
     const year = new Date(val.date).getFullYear();
+
+    val.futureEvent = new Date(val.date) > today;
 
     if (!acc[year]) {
       acc[year] = [val];
@@ -53,7 +56,7 @@ export const EventsPageTemplate = ({ title, content, contentComponent, events, h
             <ul>
               {group.events.map((event) => (
                 <li key={event.id} className="event k-card">
-                  <CardHeader date={event.date}>
+                  <CardHeader date={event.date} futureEvent={event.futureEvent}>
                     <h3 className="title is-5 w400">{event.title}</h3>
                   </CardHeader>
                   <p>{trim(event.description)}</p>
