@@ -188,7 +188,7 @@ events:
         url: https://www.meetup.com/angularkc/events/259246816/
 
   - id: e0508ebd-82b8-4440-9163-81e36d7c9ee5
-    title: 'RMA: Schematics - An Untapped Frontier'
+    title: 'RMA - Schematics: An Untapped Frontier'
     description: >
       Preview presentation for ngConf 2019
     date: 2019-03-27
@@ -240,6 +240,19 @@ events:
     otherLinks:
       - name: NgConf
         url: https://www.ng-conf.org/2019/speakers/kevin-schuchard/
+  - id: 97e69f66-b1d2-4afa-89df-0f2a923cfba1
+    title: 'RMA - NgConf in an hour'
+    description: >
+      We are still glowing from all the ng-Conf excitement, and we want to share it all with you people! Did you go to ng-Conf as well? Come contribute to the conversations! We will talk about trends, techniques, and tips that we saw and learned during our week in SLC.
+    date: 2019-05-22
+    image: ''
+    alt: ''
+    slides:
+    video: https://youtu.be/XK6cwpn_47Y
+    repo:
+    otherLinks:
+      - name: Meetup
+        url: https://www.meetup.com/RockyMountainAngular/events/259679597/
   - id: 13e426f8-ea05-4cf9-8252-83ae5312b045
     title: 'Angular Denver - Angular Fundamentals Workshop (2 days)'
     description: >
