@@ -25,7 +25,7 @@ export default class IndexPage extends React.Component {
                     </Link>
                   </h1>
                 </CardHeader>
-                <p>{post.excerpt}</p>
+                <p>{post.frontmatter.description}</p>
               </div>
             ))}
           </div>
@@ -51,7 +51,6 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 200)
           id
           fields {
             slug
@@ -60,6 +59,7 @@ export const pageQuery = graphql`
             title
             templateKey
             date(formatString: "MMMM DD, YYYY")
+            description
           }
         }
       }

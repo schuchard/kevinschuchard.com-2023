@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: Angular CLI Prompts
 date: 2018-10-22T00:00:00.000Z
-description: Angular CLI prompts are easy to configure and improve usability and validation
+description: Angular CLI prompts are easy to configure and improve usability and validation.
 tags:
   - angular
   - cli
