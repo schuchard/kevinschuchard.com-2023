@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: Rotate & Center Vertical Text
 date: 2018-10-29T00:00:00.000Z
-description: A responsive way to rotate and center text in its container
+description: A responsive way to rotate and center text in its container.
 tags:
   - angular
   - css
