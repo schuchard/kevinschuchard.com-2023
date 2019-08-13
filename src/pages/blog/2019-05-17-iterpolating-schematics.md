@@ -2,13 +2,11 @@
 templateKey: blog-post
 title: Interpolating Schematic files and filenames
 date: 2019-05-17T00:00:00.000Z
-description:
+description: The process of moving and interpolating template files in schematics is extremely powerful. You can provide variables and methods to use in the files and filenames during interpolation which is very similar to what's available in Angular components.
 tags:
   - angular
   - schematic
 ---
-
-The process of moving and interpolating template files in schematics is extremely powerful. You can provide variables and methods to use in the files and filenames during interpolation which is very similar to what's available in Angular components.
 
 # Adding files
 
