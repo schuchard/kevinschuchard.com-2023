@@ -283,4 +283,23 @@ events:
     otherLinks:
       - name: Angular Denver
         url: https://angulardenver.com/
+  - id: f023c210-8396-44b1-a92d-47c65be00045
+    title: 'Angular Crash Course Workshop (3 days)'
+    description: >
+      In this three-day crash course, developed and instructed by BrieBug's team of expert software engineers, you will learn the basics of building single page applications using Angular. Attendees will cover many topics, including TypeScript Basics, RxJS Basics, the Angular CLI, Project Structure and Architecture, Components and Templates, Services, Pipes, Forms, HTTPClient, Directives, Routing, and Testing.
+    date: 2019-09-04
+    location:
+      name: BrieBug
+      address: 12596 W Bayaud Ave Suite 201
+      city: Lakewood
+      state: Colorado
+      country: USA
+    image: ''
+    alt: ''
+    slides: https://briebug.gitbook.io/angular-fundamentals/
+    video: ''
+    repo: https://github.com/schuchard/ng-crash-course-201909
+    otherLinks:
+      - name: Tickets
+        url: https://www.eventbrite.com/e/angular-crash-course-by-briebug-tickets-63881946622?aff=erelexpmlt#
 ---
