@@ -302,4 +302,17 @@ events:
     otherLinks:
       - name: Tickets
         url: https://www.eventbrite.com/e/angular-crash-course-by-briebug-tickets-63881946622?aff=erelexpmlt#
+  - id: e7bb9936-4eb2-414e-965b-3c56c883376a
+    title: 'Angular Air: Schematics'
+    description: >
+      Discussing Schematics with Justin Schwartzenberger, Bonnie Brennan, Mike Brocchi, and Alyssa Nicoll on Angular Air
+    date: 2019-11-27
+    image: ''
+    alt: ''
+    slides: https://docs.google.com/presentation/d/e/2PACX-1vQpnhSgp2YzM7zM6lPHVsn1574D2E57cwQNYNAdd3ebiLY0fT5grLwIeleWcmKW6bQ4bX1IVjtXOeLF/pub?start=false&loop=false&delayms=3000
+    video: https://www.youtube.com/watch?v=V5K8IOvw0Gk
+    repo: https://github.com/schuchard/schematic-starter
+    otherLinks:
+      - name: Schematic resources
+        url: https://www.kevinschuchard.com/blog/2019-11-21-schematic-resources/
 ---
