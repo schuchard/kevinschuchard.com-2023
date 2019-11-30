@@ -7,7 +7,7 @@ export const Footer = ({ children }) => (
     <h3>Thanks for reading</h3>
     <p>
       If you have any questions or want to discuss this article, connect with me on Twitter and give me
-      a follow to hear about my latests posts.
+      a follow to hear about my latest posts.
     </p>
     <SocialLink url="https://twitter.com/KevinSchuchard" linkType={twitter} altType="Twitter" />
   </div>
