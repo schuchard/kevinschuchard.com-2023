@@ -30,6 +30,7 @@ This enum list can be mapped to an AST's `kind` (or `originalKeywordKind` if you
 
 - [ts-query](https://github.com/phenomnomnominal/tsquery) - a port of the ESQuery API for TypeScript! TSQuery allows you to query a TypeScript AST for patterns of syntax using a CSS style selector system.
 - [ts-morph](https://ts-morph.com/) - This library wraps the TypeScript compiler API so it's simple.
+- [VSCode schematic snippets](https://marketplace.visualstudio.com/items?itemName=MikeHuang.vscode-schematics-snippets) - Code snippets collection for writing schematics
 
 ## Learning resources other tools
 
