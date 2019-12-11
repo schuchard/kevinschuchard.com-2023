@@ -40,17 +40,16 @@
   ],
   "main": "n/a",
   "scripts": {
-    "start": "npm run develop",
+    "start": "yarn develop",
     "clean": "rimraf .cache public",
-    "build": "npm run clean && gatsby build",
-    "develop": "npm run clean && gatsby develop",
+    "build": "yarn clean && gatsby build",
+    "develop": "yarn clean && gatsby develop",
     "serve": "yarn build && gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "start-test dev 8000 cy:run",
-    "predeploy": "CI=1 yarn add cypress; yarn test",
-    "deploy": "yarn build"
+    "test:e2e": "start-test start 8000 cy:run",
+    "deploy": "yarn test:e2e && yarn build"
   },
   "devDependencies": {
     "cypress": "3.7.0",
