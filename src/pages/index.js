@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import CardHeader from '../components/CardHeader';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, graphql } from "gatsby";
+import Layout from "../components/Layout";
+import CardHeader from "../components/CardHeader";
 
 export default class IndexPage extends React.Component {
   render() {
@@ -20,12 +20,21 @@ export default class IndexPage extends React.Component {
               <div className="home-post k-card" key={post.id}>
                 <CardHeader date={post.frontmatter.date}>
                   <h1 className="title is-4 w400">
-                    <Link className="has-text-primary index-list-title" to={post.fields.slug}>
+                    <Link
+                      className="has-text-primary index-list-title"
+                      to={post.fields.slug}
+                    >
                       {post.frontmatter.title}
                     </Link>
                   </h1>
                 </CardHeader>
                 <p>{post.frontmatter.description}</p>
+                <div class="home-tag-container">
+                  {post.frontmatter.tags &&
+                    post.frontmatter.tags.map(tag => (
+                      <span className="tag is-link is-light" key={tag}>{tag}</span>
+                    ))}
+                </div>
               </div>
             ))}
           </div>
@@ -60,6 +69,7 @@ export const pageQuery = graphql`
             templateKey
             date(formatString: "MMMM DD, YYYY")
             description
+            tags
           }
         }
       }
