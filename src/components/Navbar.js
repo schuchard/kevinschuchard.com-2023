@@ -49,7 +49,7 @@ export default class NavBar extends React.Component {
 
         <div className="navbar-end">
           <div className="navbar-item">
-            <div className="field is-grouped">
+            <div className="field is-grouped social-links">
               <SocialLink url="https://twitter.com/KevinSchuchard" linkType={twitter} altType="Twitter" />
               <SocialLink url="https://github.com/schuchard" linkType={github} altType="Github" />
               <SocialLink url="https://gitlab.com/schuchard" linkType={gitlab} altType="Gitlab" />
