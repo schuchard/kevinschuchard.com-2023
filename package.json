@@ -46,10 +46,16 @@
     "develop": "npm run clean && gatsby develop",
     "serve": "yarn build && gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test": "start-test dev 8000 cy:run",
+    "predeploy": "CI=1 yarn add cypress; yarn test",
+    "deploy": "yarn build"
   },
   "devDependencies": {
+    "cypress": "3.7.0",
     "prettier": "1.17.0",
-    "rimraf": "2.6.3"
+    "rimraf": "2.6.3",
+    "start-server-and-test": "1.10.6"
   }
 }
