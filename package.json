@@ -24,7 +24,6 @@
     "gatsby-transformer-sharp": "2.3.9",
     "lodash": "4.17.15",
     "lodash-webpack-plugin": "0.11.5",
-    "netlify-cms": "2.9.7",
     "node-sass": "4.13.0",
     "parcel-bundler": "1.12.4",
     "prismjs": "1.17.1",
@@ -47,7 +46,7 @@
     "cy:open": "cypress open",
     "test:e2e:run": "start-test serve 8000 cy:run",
     "test:e2e:open": "start-test start 8000 cy:open",
-    "deploy": "CI=1 npm ci && npm run test:e2e:run && npm run build",
+    "deploy": "CI=1 npm ci && npm run test:e2e:run",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\""
   },
   "devDependencies": {
