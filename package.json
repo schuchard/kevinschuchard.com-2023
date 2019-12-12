@@ -41,12 +41,12 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
-    "serve": "npm run build && gatsby serve -p=8000",
+    "serve": "yarn build && gatsby serve -p=8000",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test:e2e:run": "start-test serve 8000 cy:run",
     "test:e2e:open": "start-test start 8000 cy:open",
-    "deploy": "CI=1 npm ci && npm run test:e2e:run",
+    "deploy": "CI=1 yarn && yarn test:e2e:run",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\""
   },
   "devDependencies": {

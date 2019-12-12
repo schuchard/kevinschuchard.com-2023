@@ -1,4 +1,4 @@
 [build]
   publish = "public"
-  command = "npm run deploy"
+  command = "yarn deploy"
 
