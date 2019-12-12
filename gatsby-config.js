@@ -83,7 +83,7 @@ module.exports = {
         }`,
       },
     },
-    // 'gatsby-transformer-sharp',
+    'gatsby-transformer-sharp',
     {
       // https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference
       resolve: `gatsby-plugin-google-analytics`,
@@ -188,12 +188,6 @@ module.exports = {
         ],
         skipWaiting: true,
         clientsClaim: true,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
     'gatsby-plugin-netlify', // make sure to keep it last in the array

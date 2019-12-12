@@ -22,12 +22,12 @@ describe("Direct URLs", () => {
 
 describe("Tags", function() {
   it("should display all tags", function() {
-    cy.visit("tags").contains("h1", "Tags");
+    cy.visit("tags/").contains("h1", "Tags");
     cy.get("ul.taglist > li").should("have.length.gt", 3);
   });
 
   it("should display tag groups", function() {
-    cy.visit("tags/angular").contains("h3", "8 posts tagged with “angular”");
+    cy.visit("tags/angular/").contains("h3", "8 posts tagged with “angular”");
     cy.get("ul.taglist > li").should("have.length.gt", 3);
   });
 });
