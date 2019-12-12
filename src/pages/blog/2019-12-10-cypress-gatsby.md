@@ -38,13 +38,11 @@ Your scripts will likely vary somewhat but will follow the pattern below. A few 
 
 ```json
 "scripts": {
-  "clean": "rimraf .cache public",
-
   # serve local development build
   "start": "gatsby develop",
 
   # production build
-  "build": "yarn clean && gatsby build",
+  "build": "gatsby build",
 
   # serve local production build (change to port 8000 so Cypress works with prod & none prod builds)
   "serve": "yarn build && gatsby serve -p=8000",
