@@ -123,4 +123,4 @@ describe("Home Page", () => {
 
 > `cy.visit()` requires the response code to be `2xx` after following redirects.
 
-Assuming your test passes you can begin testing your application with Cypress!
+Assuming your test passes you can begin testing your application with Cypress! I have a similar configuration for this [site](https://github.com/schuchard/kevinschuchard.com) that ensures routes are working and elements are rendering as expected on every build.
