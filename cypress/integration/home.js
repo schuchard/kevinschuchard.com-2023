@@ -20,28 +20,28 @@ describe("Direct URLs", () => {
   });
 });
 
-describe("Tags", function() {
-  it("should display all tags", function() {
-    cy.visit("tags/").contains("h1", "Tags");
+describe("Tags", () => {
+  it("should display all tags", () => {
+    cy.visit("tags").contains("h1", "Tags");
     cy.get("ul.taglist > li").should("have.length.gt", 3);
   });
 
-  it("should display tag groups", function() {
-    cy.visit("tags/angular/").contains("h3", "8 posts tagged with “angular”");
+  it("should display tag groups", () => {
+    cy.visit("tags/angular").contains("h3", "posts tagged with “angular”");
     cy.get("ul.taglist > li").should("have.length.gt", 3);
   });
 });
 
-describe("Events", function() {
-  it("should display events", function() {
+describe("Events", () => {
+  it("should display events", () => {
     cy.visit("events");
     cy.get("li.event").should("have.length.gt", 3);
     cy.contains("li.event", "NgConf - Schematics: an untapped frontier");
   });
 });
 
-describe("About", function() {
-  it("should display about", function() {
+describe("About", () => {
+  it("should display about", () => {
     cy.visit("about");
     cy.contains("h2", "About Me");
   });
