@@ -32,7 +32,7 @@ export default class IndexPage extends React.Component {
                 <div class="home-tag-container">
                   {post.frontmatter.tags &&
                     post.frontmatter.tags.map(tag => (
-                      <span className="tag is-link is-light" key={tag}>{tag}</span>
+                      <span className="tag-pill" key={tag}>{tag}</span>
                     ))}
                 </div>
               </div>
