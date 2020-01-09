@@ -36,3 +36,5 @@ This enum list can be mapped to an AST's `kind` (or `originalKeywordKind` if you
 
 - [Babel Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md) - Babel works with AST's to read and apply transformations. Other languages available [here](https://github.com/jamiebuilds/babel-handbook)
 - [Unified.js](https://unifiedjs.com/) - an interface for processing text with syntax trees and transforming between them.
+- [Typescript Architecture Overview](https://github.com/microsoft/TypeScript/wiki/Architectural-Overview)
+- [Using Typescript Compiler API](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API)
