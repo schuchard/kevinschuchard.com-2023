@@ -25,16 +25,26 @@ Formatting the date-time is available in a number of ways, such as the pre-defin
 {{today | date:'medium'}} # Dec 16, 2019, 9:24:30 PM
 ```
 
-For most, this is exactly what you want, the date and local time of the user. But what if you’re dealing with [ISO](https://en.wikipedia.org/wiki/ISO_8601) date-time [strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) that are zero UTC offset. Going back to the example above we're not getting the zero offset time. That time would be:
+For most, this is exactly what you want, the date and local time of the user. But what if you’re dealing with [ISO](https://en.wikipedia.org/wiki/ISO_8601) date-time [strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) that are zero UTC offset. The previous example is not displaying a zero offset time. That time would be:
 
 ```text
 04:24:30.893Z
 ```
 
-We can see the Angular Date pipe defaults to local time. Fortunately this is easily adjusted by providing the offset to the pipe as the 2nd [argument](https://angular.io/api/common/DatePipe#parameters).
+The Angular Date pipe defaults to local time. Fortunately, this is easily adjusted by providing the offset to the pipe as the 2nd [argument](https://angular.io/api/common/DatePipe#parameters): `'+0:00'`.
 
 ```html
-{{time | date:'HH:mm:ss':'+0:00'}} # 04:24:30
+{{ today | date:'HH:mm:ss':'+0:00' }}
+
+# 04:24:30
+```
+
+You can achieve a [simplified extended ISO format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) (ISO 8601) similar to `.toISOString()` with following date pipe format:
+
+```html
+{{ today | date:'yyyy-MM-ddTHH:mm:ss.SSS':'+0:00' }}Z
+
+# 2020-05-07T04:24:30.576Z
 ```
 
 ## Demo
